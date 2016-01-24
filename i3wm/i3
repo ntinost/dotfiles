@@ -107,9 +107,9 @@ mode "  " {
 	bindcode Mod1+65 exec --no-startup-id pkill -RTMIN+1 i3blocks
 
 # Volume & Media Bindings
-  	bindsym XF86AudioMute exec --no-startup-id ponymix toggle
-  	bindsym XF86AudioLowerVolume exec --no-startup-id ponymix decrease 3
-  	bindsym XF86AudioRaiseVolume exec --no-startup-id ponymix increase 3
+  	bindsym XF86AudioMute exec --no-startup-id ponymix toggle && pkill RTMIN+1 i3blocks
+  	bindsym XF86AudioLowerVolume exec --no-startup-id ponymix decrease 3 && pkill RTMIN+1 i3blocks
+  	bindsym XF86AudioRaiseVolume exec --no-startup-id ponymix increase 3 && pkill RTMIN+1 i3blocks
   	bindsym XF86AudioStop exec mpc stop
   	bindsym XF86AudioPlay exec mpc toggle
   	bindsym XF86AudioNext exec mpc next
@@ -219,8 +219,8 @@ mode "$mpd_control" {
     bindsym equal exec --no-startup-id mpc volume +3
     bindsym minus exec --no-startup-id mpc volume -3
     bindsym XF86AudioMute exec --no-startup-id ponymix toggle && pkill RTMIN+1 i3blocks
-    bindsym XF86AudioLowerVolume exec --no-startup-id mpc volume -3 && pkill RTMIN+1 i3blocks
-    bindsym XF86AudioRaiseVolume exec --no-startup-id mpc volume +3 && pkill RTMIN+1 i3blocks
+    bindsym XF86AudioLowerVolume exec --no-startup-id mpc volume -3
+    bindsym XF86AudioRaiseVolume exec --no-startup-id mpc volume +3
 
     bindsym q mode "default"
     bindsym Escape mode "default"
