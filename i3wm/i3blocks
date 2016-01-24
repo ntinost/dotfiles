@@ -23,8 +23,10 @@ interval=3600
 label=
 
 [volume]
-command=v=`/usr/lib/i3blocks/volume`; if [ "$v" = "MUTE" ]; then echo " ----"; else echo " $v"; fi
-interval=1
+command=v=`/usr/lib/i3blocks/volume`; if [ "$v" = "MUTE" ]; then echo " ---"; else echo " $v"; fi
+instance=Master
+interval=once
+signal=1
 
 [language]
 command=echo "`xkb-switch`" | awk '{print toupper($0)}'
