@@ -15,6 +15,6 @@ else
 	echo " $COUNT new" # short text
 
 	if [ "$COUNT" -gt 0 ]; then
-		echo \#FFFC00 # colored output
+		echo \#ebcb8b # colored output
 	fi
 fi
