@@ -1,0 +1,26 @@
+[user]
+	email = konstantinos.toumpidis@protonmail.ch
+	name = Konstantinos Toumpidis
+
+[core]
+	editor = vim
+
+[push]
+	default = simple
+
+[merge]
+	tool = vimdiff
+
+[alias]
+	unstage = reset HEAD
+	uns = reset HEAD
+	co = checkout
+
+	br = branch
+	ci = commit
+	st = status
+
+	last = log -1 HEAD
+
+[credential]
+	helper = cache

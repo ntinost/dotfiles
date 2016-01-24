@@ -1,0 +1,290 @@
+#
+# Section scheme inspired from alexbooker
+# https://github.com/alexbooker/dotfiles
+#
+# Sections:
+#	-> Constants
+#	-> General Configuration
+#	-> Window Bindings
+#	-> Workspace Bindings
+#		* Workspace-to-Monitors Assignments
+#	-> Startup Programs
+#	-> Program Bindings
+#		* Restart-Related Bindings
+#		* Volume & Media Bindings
+#		* Monitor Bindings
+#	-> Program-to-Workspaces Assignments
+#		* Floating/Tabbed
+#	-> Colors (see constants for specific vals)
+#	-> "Specialized" code: Complex optional additions that don't fit above.
+#		#1: Chromium youtube fullscreen hack.
+#		#2: MPD control. TODO: replace by mpd rofi control
+#		#3: System halter
+#		#4: Gaps resize
+#
+
+# Constants
+set $mod Mod4
+set $base00 #2b303b
+set $base01 #343d46
+set $base02 #4f5b66
+set $base03 #65737e
+set $base04 #a7adba
+set $base05 #c0c5ce
+set $base06 #dfe1e8
+set $base07 #eff1f5
+set $base08 #bf616a
+set $base09 #d08770
+set $base0A #ebcb8b
+set $base0B #a3be8c
+set $base0C #96b5b4
+set $base0D #8fa1b3
+set $base0E #b48ead
+set $base0F #ab7967
+set $workspace1 "1: "
+set $workspace2 "2: "
+set $workspace3 "3: "
+set $workspace4 "4: "
+set $workspace5 "5: "
+set $workspace6 "6: "
+set $workspace7 "7: "
+set $workspace8 "8: "
+set $workspace9 "9: "
+set $workspace10 "10: "
+set $monitor1 "HDMI2"
+set $monitor2 "VGA1"
+
+# General Configuration
+font pango: Fira Sans Semibold 10
+floating_modifier $mod
+#hide_edge_borders both
+new_window pixel 4
+smart_borders on
+workspace_auto_back_and_forth yes
+gaps inner 7
+
+# Window-Related Bindings
+bindsym $mod+Shift+q kill
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+bindsym $mod+Ctrl+h move container to output left
+bindsym $mod+Ctrl+j move container to output down
+bindsym $mod+Ctrl+k move container to output up
+bindsym $mod+Ctrl+l move container to output right
+bindsym $mod+e layout toggle split
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+v split v
+bindsym $mod+b split h
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+s sticky toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+f fullscreen toggle
+bindsym $mod+u [urgent="latest"] focus
+bindsym $mod+r mode "  "
+mode "  " {
+  bindsym h resize shrink width 10 px or 10 ppt
+  bindsym j resize grow height 10 px or 10 ppt
+  bindsym k resize shrink height 10 px or 10 ppt
+  bindsym l resize grow width 10 px or 10 ppt
+  bindsym Escape mode "default"
+  bindsym q mode "default"
+}
+
+# Restart-Related Bindings
+  	bindsym $mod+Shift+c reload
+  	bindsym $mod+Shift+r restart
+
+# Program-Related Bindings
+  	bindsym $mod+Return exec termite
+  	bindsym $mod+d exec rofi -show run -lines 5 -eh 2 -width 100 -padding 400 -opacity "85" -bw 0 -bc "$base00" -bg "$base00" -fg "$base05" -hlbg "$base00" -hlfg "$base02" -font "Fira Sans Semibold 20"
+
+# Volume & Media Bindings
+  	bindsym XF86AudioMute exec --no-startup-id ponymix toggle
+  	bindsym XF86AudioLowerVolume exec --no-startup-id ponymix decrease 3
+  	bindsym XF86AudioRaiseVolume exec --no-startup-id ponymix increase 3
+  	bindsym XF86AudioStop exec mpc stop
+  	bindsym XF86AudioPlay exec mpc toggle
+  	bindsym XF86AudioNext exec mpc next
+  	bindsym XF86AudioPrev exec mpc prev
+
+# Startup Programs
+	exec_always --no-startup-id feh --bg-tile ~/.dotfiles/i3wm/wallpaper.jpg
+	exec --no-startup-id xrandr --output $monitor1 --auto --output $monitor2 --off
+	exec_always --no-startup-id setxkbmap -model pc104 -layout pl,gr -option grp:alt_space_toggle,caps:ctrl_modifier
+	exec --no-startup-id unclutter
+	exec --no-startup-id mpd
+	exec --no-startup-id transmission-daemon
+	exec --no-startup-id dunst
+	exec --no-startup-id compton --config $HOME/.config/compton/config
+	exec --no-startup-id termite; exec --no-startup-id termite
+	exec --no-startup-id qutebrowser
+	exec --no-startup-id thunar; exec --no-startup-id thunar
+
+# Workspace-Related Bindings
+	bindsym $mod+1 workspace $workspace1
+ 	bindsym $mod+2 workspace $workspace2
+ 	bindsym $mod+3 workspace $workspace3
+ 	bindsym $mod+4 workspace $workspace4
+ 	bindsym $mod+5 workspace $workspace5
+ 	bindsym $mod+6 workspace $workspace6
+ 	bindsym $mod+7 workspace $workspace7
+ 	bindsym $mod+8 workspace $workspace8
+ 	bindsym $mod+9 workspace $workspace9
+ 	bindsym $mod+0 workspace $workspace10
+
+ 	bindsym $mod+Shift+1 move container to workspace $workspace1
+ 	bindsym $mod+Shift+2 move container to workspace $workspace2
+ 	bindsym $mod+Shift+3 move container to workspace $workspace3
+ 	bindsym $mod+Shift+4 move container to workspace $workspace4
+ 	bindsym $mod+Shift+5 move container to workspace $workspace5
+ 	bindsym $mod+Shift+6 move container to workspace $workspace6
+ 	bindsym $mod+Shift+7 move container to workspace $workspace7
+ 	bindsym $mod+Shift+8 move container to workspace $workspace8
+ 	bindsym $mod+Shift+9 move container to workspace $workspace9
+ 	bindsym $mod+Shift+0 move container to workspace $workspace10
+
+# Workspace Monitors
+workspace $workspace1 output $monitor1
+workspace $workspace2 output $monitor1
+workspace $workspace3 output $monitor1
+workspace $workspace4 output $monitor1
+workspace $workspace5 output $monitor1
+workspace $workspace6 output $monitor1
+workspace $workspace10 output $monitor1
+
+# Monitor modes
+bindsym $mod+KP_End exec --no-startup-id xrandr --output VGA1 --auto --left-of HDMI2 --auto --primary
+bindsym $mod+KP_Down exec --no-startup-id xrandr --output $monitor1 --auto --output $monitor2 --off
+bindsym $mod+KP_Next exec --no-startup-id xrandr --output $monitor1 --off --output $monitor2 --auto
+
+# Program Workspaces
+assign [class="qutebrowser"] $workspace1
+assign [class="Thunar"] $workspace2
+assign [class="VirtualBox"] $workspace5
+
+# Floating
+for_window [class="Pavucontrol"] floating enable
+for_window [class="mpv"] floating enable
+for_window [class="Lxappearance"] floating enable
+for_window [class="Simplescreenrecorder"] floating enable
+for_window [instance="sun-awt-X11-XFramePeer"] floating enable
+
+# Tabbed
+for_window [class="VirtualBox"] layout tabbed
+
+# Widow Colors
+#                         border  background text    indicator
+  client.focused          $base03 $base03    $base07 $base0F
+  client.focused_inactive $base01 $base01    $base03 $base0F
+  client.unfocused        $base01 $base01    $base03 $base0F
+  client.urgent           $base02 $base08    $base00 $base0F
+
+# Bar
+  bar {
+	output $monitor1
+    font pango: Fira Sans Semibold, FontAwesome 10
+    status_command i3blocks -c $HOME/.dotfiles/i3wm/i3blocks
+	strip_workspace_numbers yes
+    colors {
+      separator $base03
+      background $base01
+      statusline $base05
+#                        border  background text
+      focused_workspace  $base01 $base01    $base07
+      active_workspace   $base01 $base02    $base03
+      inactive_workspace $base01 $base01    $base03
+      urgent_workspace   $base01 $base01    $base08
+    }
+  }
+
+# Specialized code #1: Chromium youtube sticky window.
+bindsym $mod+y fullscreen disable; floating enable; resize set 500 290; sticky enable; move window to position 1415 20
+
+# Specialized code #2: MPD control
+set $mpd_control MPD:   (S),   (P),   (H),   (L),   (R),   (-),   (=)
+bindsym $mod+m mode "$mpd_control"
+mode "$mpd_control" {
+    bindsym s exec --no-startup-id mpc stop
+    bindsym p exec --no-startup-id mpc toggle
+    bindsym l exec --no-startup-id mpc next
+    bindsym h exec --no-startup-id mpc prev
+    bindsym r exec --no-startup-id mpc repeat && mpc single
+    bindsym equal exec --no-startup-id mpc volume +3
+    bindsym minus exec --no-startup-id mpc volume -3
+    bindsym XF86AudioMute exec --no-startup-id ponymix toggle
+    bindsym XF86AudioLowerVolume exec --no-startup-id mpc volume -3
+    bindsym XF86AudioRaiseVolume exec --no-startup-id mpc volume +3
+
+    bindsym q mode "default"
+    bindsym Escape mode "default"
+	bindsym Return mode "default"
+}
+
+# Specialized code #3: System halter
+set $Locker mpc stop && sleep 1
+set $mode_system  (T)erminate session     (S)uspend
+set $mode_system_terminate  (S)hutdown     (R)eboot     (X) logout
+bindsym $mod+Pause mode "$mode_system"
+mode "$mode_system" {
+    bindsym t mode "$mode_system_terminate"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym q mode "default"
+}
+mode "$mode_system_terminate" {
+   bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
+   bindsym r exec --no-startup-id systemctl reboot, mode "default"
+   bindsym x exec --no-startup-id i3-msg exit, mode "default"
+   bindsym Return mode "default"
+   bindsym Escape mode "default"
+   bindsym q mode "default"
+}
+
+# Specialized code #4: Gaps resize
+set $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+mode "$mode_gaps" {
+        bindsym o mode "$mode_gaps_outer"
+        bindsym i mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym q mode "default"
+}
+
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+		bindsym q mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+		bindsym q mode "default"
+}
+

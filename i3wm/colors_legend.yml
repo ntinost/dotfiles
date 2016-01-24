@@ -1,0 +1,29 @@
+scheme: "Ocean"
+author: "Chris Kempson (http://chriskempson.com)"
+dark-background:
+	base00: "2b303b"
+	base01: "343d46"
+content:
+	base02: "4f5b66"
+	base03: "65737e"
+	base04: "a7adba"
+	base05: "c0c5ce"
+light-background:
+	base06: "dfe1e8"
+	base07: "eff1f5"
+red:
+	base08: "bf616a"
+orange:
+	base09: "d08770"
+yellow:
+	base0A: "ebcb8b"
+green:
+	base0B: "a3be8c"
+cyan:
+	base0C: "96b5b4"
+blue:
+	base0D: "8fa1b3"
+magenta:
+	base0E: "b48ead"
+brown:
+	base0F: "ab7967"
