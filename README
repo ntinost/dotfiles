@@ -1,8 +1,7 @@
 Mah dots
 --------
 * i3wm config now considered as a full blown setup (installation governs teh whole set)
-* vim/zsh (and some minor stuff) added, based from Ilias95/dotfiles,
-  will modify over time accordingly
+* vim/zsh (and some minor stuff) added, based from Ilias95/dotfiles, will modify over time accordingly
 
 Installation
 -------------
