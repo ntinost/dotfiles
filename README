@@ -1,4 +1,7 @@
-Configs, odds and ends, that sort of stuff.
+<h2>Mah dots</h2>
+* i3wm config now considered as a full blown setup (installation governs teh whole set)
+* vim/zsh (and some minor stuff) added, based from Ilias95/dotfiles,
+  will modify over time accordingly
 
 Installation
 -------------
@@ -20,5 +23,5 @@ You can additionally run the installer again, in order to install any new
 configuration bundles.
 
 Contact
---------
-stamatis.iliass <> gmail
+-------
+stamatis.iliass <> gmail (vim/zsh)
