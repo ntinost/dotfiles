@@ -123,7 +123,6 @@ mode "  " {
 	exec --no-startup-id transmission-daemon
 	exec --no-startup-id dunst
 	exec --no-startup-id compton --config $HOME/.config/compton/config
-	exec --no-startup-id termite; exec --no-startup-id termite
 	exec --no-startup-id qutebrowser
 	exec --no-startup-id thunar; exec --no-startup-id thunar
 
