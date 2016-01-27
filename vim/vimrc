@@ -157,7 +157,7 @@
         let base16colorspace=256
         colorscheme base16-ocean
         set guioptions=m
-        set guifont=Inconsolata-g\ 9
+        set guifont=Inconsolata-g\ 10
         hi CursorLineNr term=bold ctermfg=8 ctermbg=18 gui=bold guifg=#ebcb8b guibg=#343d46
     endif
 " }

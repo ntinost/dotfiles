@@ -121,11 +121,10 @@ mode "  " {
 	exec_always --no-startup-id setxkbmap -model pc104 -layout pl,gr -option grp:alt_space_toggle,caps:ctrl_modifier
 	exec --no-startup-id unclutter
 	exec --no-startup-id mpd
-	exec --no-startup-id transmission-daemon
 	exec --no-startup-id dunst
 	exec --no-startup-id compton --config $HOME/.config/compton/config
 	exec --no-startup-id qutebrowser
-	exec --no-startup-id thunar; exec --no-startup-id thunar
+	exec --no-startup-id caja
 
 # Workspace-Related Bindings
 	bindsym $mod+1 workspace $workspace1
@@ -166,7 +165,7 @@ bindsym $mod+KP_Next exec --no-startup-id xrandr --output $monitor1 --off --outp
 
 # Program Workspaces
 assign [class="qutebrowser"] $workspace1
-assign [class="Thunar"] $workspace2
+assign [class="caja"] $workspace2
 assign [class="VirtualBox"] $workspace5
 
 # Floating
@@ -175,6 +174,7 @@ for_window [class="mpv"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="Simplescreenrecorder"] floating enable
 for_window [instance="sun-awt-X11-XFramePeer"] floating enable
+for_window [title="PyQt5Tutorial"] floating enable
 
 # Tabbed
 for_window [class="VirtualBox"] layout tabbed

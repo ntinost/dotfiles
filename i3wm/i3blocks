@@ -11,6 +11,7 @@ label=
 [email]
 command=$HOME/.dotfiles/i3wm/bar/unread_mails.sh
 interval=120
+label=
 
 [load]
 command=$HOME/.dotfiles/i3wm/bar/load_average.sh
