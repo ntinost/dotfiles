@@ -14,7 +14,7 @@ cursor_shape = block
 scrollback_lines = 10000
 search_wrap = true
 
-font = Inconsolata-g 10
+font = Hack Regular 10
 
 [colors]
 # Base16 Ocean

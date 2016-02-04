@@ -49,7 +49,7 @@
         Plugin 'scrooloose/nerdtree'
 
         " Autoclose brackets, parens, quotes, etc.
-        Plugin 'Townk/vim-autoclose'
+		Plugin 'Raimondi/delimitMate'
 
         " Undo history graph
         " Usage: Open tree with <leader>u (custom map)
@@ -157,7 +157,7 @@
         let base16colorspace=256
         colorscheme base16-ocean
         set guioptions=m
-        set guifont=Inconsolata-g\ 10
+        set guifont=Hack\ Regular\ 10
         hi CursorLineNr term=bold ctermfg=8 ctermbg=18 gui=bold guifg=#ebcb8b guibg=#343d46
     endif
 " }
@@ -174,13 +174,6 @@
     nnoremap <leader>w :w!<cr>
 
     nnoremap 0 ^
-
-    " <Esc> is inconvinient as it requires stretching to the top of the keyboard.
-    inoremap jk <Esc>
-    snoremap jk <Esc>
-
-    " <Del> key is too far...
-    inoremap <leader>d <Del>
 
     " Use s (insert before) or S (insert after) to insert a single character.
     " Returns to normal mode automatically. It allows repetitions as well.
