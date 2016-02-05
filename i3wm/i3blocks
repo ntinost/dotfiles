@@ -30,7 +30,8 @@ interval=once
 signal=1
 
 [language]
-command=echo "`xkb-switch`" | awk '{print toupper($0)}'
+command=$HOME/.dotfiles/i3wm/bar/lang.sh
+#command=echo "`xkb-switch`" | awk '{print toupper($0)}'
 interval=once
 signal=1
 label=
