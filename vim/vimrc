@@ -160,7 +160,7 @@
         let base16colorspace=256
         colorscheme base16-ocean
         set guioptions=m
-        set guifont=Hack\ Regular\ 10
+        set guifont=Iosevka\ Slab\ Regular\ 10
         hi CursorLineNr term=bold ctermfg=8 ctermbg=18 gui=bold guifg=#ebcb8b guibg=#343d46
     endif
 " }
