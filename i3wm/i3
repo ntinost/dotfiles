@@ -117,6 +117,8 @@ mode "  " {
   	bindsym XF86AudioPrev exec mpc prev
 
 # Startup Programs
+	# exec_always --no-startup-id feh --bg-tile ~/.dotfiles/i3wm/wallpaper.jpg
+	exec --no-startup-id p3 $HOME/himawaripy/himawaripy.py
 	exec --no-startup-id xrandr --output $monitor1 --auto --output $monitor2 --off
 	exec_always --no-startup-id setxkbmap -model pc104 -layout pl,gr -option grp:alt_space_toggle,caps:ctrl_modifier
 	exec --no-startup-id unclutter
