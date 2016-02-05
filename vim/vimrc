@@ -62,6 +62,9 @@
         " Vim motions. This plugin is really awesome!
         " Usage: for example type <leader><leader>w and navigate quickly
         Plugin 'easymotion/vim-easymotion'
+
+        " Use a non-latin lang on INSERT without toggling it
+        Plugin 'lyokha/vim-xkbswitch'
     " }
 
     " General Programming {
@@ -471,6 +474,10 @@
         let g:undotree_setfocuswhentoggle=1
         nnoremap <leader>u :UndotreeToggle<cr>
     " }
+
+    "vim-xkbswitch {
+        let g:XkbSwitchEnabled = 1
+    "}
 
     if has("python")
         " python-mode {
