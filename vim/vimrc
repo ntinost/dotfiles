@@ -173,9 +173,6 @@
     " Save typing and eliminate :Q style typos due to lazy holding shift.
     nnoremap ; :
 
-    " Quick save.
-    nnoremap <leader>w :w!<cr>
-
     nnoremap 0 ^
 
     " Use s (insert before) or S (insert after) to insert a single character.
