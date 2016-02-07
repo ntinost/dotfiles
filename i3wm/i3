@@ -106,6 +106,7 @@ mode "  " {
   	bindsym $mod+d exec rofi -show run -lines 5 -eh 2 -width 100 -padding 400 -opacity "85" -bw 0 -bc "$base00" -bg "$base00" -fg "$base05" -hlbg "$base00" -hlfg "$base02" -font "Fira Sans Semibold 20"
 	bindcode Mod1+65 exec --no-startup-id pkill -RTMIN+1 i3blocks
     bindsym $mod+p exec pavucontrol
+	bindsym $mod+Shift+y exec youtube1click.sh
 
 # Volume & Media Bindings
   	bindsym XF86AudioMute exec --no-startup-id ponymix toggle && pkill -RTMIN+1 i3blocks
@@ -120,7 +121,6 @@ mode "  " {
 	exec --no-startup-id xrandr --output $monitor1 --auto --output $monitor2 --off
 	exec_always --no-startup-id nitrogen --restore
 	exec_always --no-startup-id setxkbmap -model pc104 -layout pl,gr -option grp:alt_space_toggle,caps:ctrl_modifier
-	exec xscreensaver -no-splash
 	exec xset -dpms s off
 	exec --no-startup-id compton --config $HOME/.config/compton/config
 	exec --no-startup-id qutebrowser
