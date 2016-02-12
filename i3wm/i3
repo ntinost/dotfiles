@@ -41,27 +41,26 @@ set $base0C #96b5b4
 set $base0D #8fa1b3
 set $base0E #b48ead
 set $base0F #ab7967
-set $workspace1 "1: "
-set $workspace2 "2: "
-set $workspace3 "3: "
-set $workspace4 "4: "
-set $workspace5 "5: "
+set $workspace1 "1: "
+set $workspace2 "2: "
+set $workspace3 "3: "
+set $workspace4 "4: "
+set $workspace5 "5: "
 set $workspace6 "6: "
 set $workspace7 "7: "
 set $workspace8 "8: "
 set $workspace9 "9: "
-set $workspace10 "10: "
+set $workspace10 "10: "
 set $monitor1 "HDMI2"
 set $monitor2 "VGA1"
 
 # General Configuration
-font pango: Fira Sans Semibold 10
+font pango: Iosevka Slab Medium 9.5
 floating_modifier $mod
 #hide_edge_borders both
 new_window pixel 4
 smart_borders on
 workspace_auto_back_and_forth yes
-gaps inner 7
 
 # Window-Related Bindings
 bindsym $mod+Shift+q kill
@@ -103,7 +102,7 @@ mode "  " {
 
 # Program-Related Bindings
   	bindsym $mod+Return exec termite
-  	bindsym $mod+d exec rofi -show run -lines 5 -eh 2 -width 100 -padding 400 -opacity "85" -bw 0 -bc "$base00" -bg "$base00" -fg "$base05" -hlbg "$base00" -hlfg "$base02" -font "Fira Sans Semibold 20"
+  	bindsym $mod+d exec rofi -show run -eh 2
 	bindcode Mod1+65 exec --no-startup-id pkill -RTMIN+1 i3blocks
     bindsym $mod+p exec pavucontrol
 	bindsym $mod+Shift+y exec youtube1click.sh
@@ -119,7 +118,7 @@ mode "  " {
 
 # Startup Programs
 	exec --no-startup-id xrandr --output $monitor1 --auto --output $monitor2 --off
-	exec_always --no-startup-id nitrogen --restore
+	exec_always --no-startup-id hsetroot -tile ~/Pictures/maze-simple.png
 	exec_always --no-startup-id setxkbmap -model pc104 -layout pl,gr -option grp:alt_space_toggle,caps:ctrl_modifier
 	exec xset -dpms s off
 	exec --no-startup-id compton --config $HOME/.config/compton/config
@@ -164,8 +163,8 @@ bindsym $mod+KP_Down exec --no-startup-id xrandr --output $monitor1 --auto --out
 bindsym $mod+KP_Next exec --no-startup-id xrandr --output $monitor1 --off --output $monitor2 --auto
 
 # Program Workspaces
-assign [class="qutebrowser"] $workspace1
-assign [class="VirtualBox"] $workspace5
+assign [class="qutebrowser"] $workspace2
+assign [class="VirtualBox"] $workspace4
 
 # Floating
 for_window [class="Pavucontrol"] floating enable
@@ -188,7 +187,6 @@ for_window [class="VirtualBox"] layout tabbed
 # Bar
   bar {
 	output $monitor1
-    font pango: Fira Sans Semibold, FontAwesome 10
     status_command i3blocks -c $HOME/.dotfiles/i3wm/i3blocks
 	strip_workspace_numbers yes
     colors {
