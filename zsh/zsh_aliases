@@ -20,6 +20,7 @@
 	alias dot='cd $DOTFILES'
 	alias teithevpn='cd $DOTFILES/vpn/teithe/ && sudo openvpn tux-full-udp.ovpn'
 	alias aetos='ssh ktoumpid@aetos.it.teithe.gr'
+	alias alarm='ssh alarm@alarmpi'
 
 	# Easy clone git repos.
 	clone() { git clone https://github.com/$1/$2 }
