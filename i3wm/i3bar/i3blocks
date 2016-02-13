@@ -4,22 +4,22 @@ command=/usr/lib/i3block/$BLOCK_NAME
 color=#c0c5ce
 
 [mpd]
-command=$HOME/.dotfiles/i3wm/bar/mpd.sh
+command=$HOME/.dotfiles/i3wm/i3bar/mpd.sh
 interval=5
 label=
 
 [email]
-command=$HOME/.dotfiles/i3wm/bar/unread_mails.sh
+command=$HOME/.dotfiles/i3wm/i3bar/unread_mails.sh
 interval=120
 label=
 
 [load]
-command=$HOME/.dotfiles/i3wm/bar/load_average.sh
+command=$HOME/.dotfiles/i3wm/i3bar/load_average.sh
 interval=60
 label=
 
 [disk]
-command=$HOME/.dotfiles/i3wm/bar/disk.sh
+command=$HOME/.dotfiles/i3wm/i3bar/disk.sh
 interval=3600
 label=
 
@@ -30,8 +30,7 @@ interval=once
 signal=1
 
 [language]
-command=$HOME/.dotfiles/i3wm/bar/lang.sh
-#command=echo "`xkb-switch`" | awk '{print toupper($0)}'
+command=$HOME/.dotfiles/i3wm/i3bar/lang.sh
 interval=once
 signal=1
 label=

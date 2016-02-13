@@ -14,17 +14,9 @@ for i in i3 termite; do
 	fi
 done
 
-if [ -f ~/.config/dunst/dunstrc ]; then
-	echo "→ backup existing ~/.config/dunst/dunstrc file to ~/.config/dunst/dunstrc.orig"
-	mv ~/.config/dunst/dunstrc ~/.config/dunst/dunstrc.orig
-fi
-
 for i in i3 termite; do
 	echo "→ symlink ~/.config/${i}/config to the real config file"
 	ln -sf "$DOTFILES/i3wm/$i" ~/.config/$i/config
 done
-
-echo "→ symlink ~/.config/dunst/dunstrc to the real config file"
-ln -sf "$DOTFILES/i3wm/dunstrc" ~/.config/dunst/dunstrc
 
 echo -e "\nDone!\n"

@@ -118,10 +118,10 @@ mode "  " {
 
 # Startup Programs
 	exec --no-startup-id xrandr --output $monitor1 --auto --output $monitor2 --off
-	exec_always --no-startup-id hsetroot -tile ~/Pictures/maze-simple.png
+	exec_always --no-startup-id hsetroot -tile ~/.dotfiles/i3wm/maze-6px.png
 	exec_always --no-startup-id setxkbmap -model pc104 -layout pl,gr -option grp:alt_space_toggle,caps:ctrl_modifier
 	exec xset -dpms s off
-	exec --no-startup-id compton --config $HOME/.config/compton/config
+	exec --no-startup-id compton --config $DOTFILES/i3wm/compton
 	exec --no-startup-id qutebrowser
 
 
@@ -187,7 +187,7 @@ for_window [class="VirtualBox"] layout tabbed
 # Bar
   bar {
 	output $monitor1
-    status_command i3blocks -c $HOME/.dotfiles/i3wm/i3blocks
+    status_command i3blocks -c $DOTFILES/i3wm/i3bar/i3blocks
 	strip_workspace_numbers yes
     colors {
       separator $base03

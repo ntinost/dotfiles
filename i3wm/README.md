@@ -1,5 +1,11 @@
 # My i3wm setup
-*Full blown i3wm environment*
+*i3 window manager*
+### A head-up to what install.sh does:
+* Symlinks i3's main config (you don't say?)...
+* ...termite's config (obviously if you don't use that one don't run the script)...
+* ...and dunst's
+Otherwise everything is read from here.
+
 ### Dependencies:
 * [i3-gaps](https://github.com/Airblader/i3)
 * [i3blocks](https://github.com/vivien/i3blocks)
