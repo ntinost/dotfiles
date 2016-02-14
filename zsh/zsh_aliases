@@ -59,6 +59,8 @@
 	maskd() { sudo systemctl mask $(filterservicename $1); }
 	unmaskd() { sudo systemctl unmask $(filterservicename $1); }
 
+	trans() { sudo systemctl restart transmission; }
+
 	listmasked() { systemctl list-unit-files | awk '$2 == "masked" {print $1}' }
 
 	# Power control.

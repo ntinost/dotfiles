@@ -105,7 +105,6 @@ mode "  " {
   	bindsym $mod+d exec rofi -show run -eh 2
 	bindcode Mod1+65 exec --no-startup-id pkill -RTMIN+1 i3blocks
     bindsym $mod+p exec pavucontrol
-	bindsym $mod+Shift+y exec youtube1click.sh
 
 # Volume & Media Bindings
   	bindsym XF86AudioMute exec --no-startup-id ponymix toggle && pkill -RTMIN+1 i3blocks
@@ -123,7 +122,6 @@ mode "  " {
 	exec xset -dpms s off
 	exec --no-startup-id compton --config $DOTFILES/i3wm/compton
 	exec --no-startup-id qutebrowser
-
 
 # Workspace-Related Bindings
 	bindsym $mod+1 workspace $workspace1
