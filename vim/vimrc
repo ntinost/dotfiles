@@ -454,7 +454,6 @@
     " }
 
     " NerdTree {
-        nnoremap <leader>e :NERDTreeFind<cr>
         nnoremap <C-e> :NERDTreeToggle<cr>
 
         let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
