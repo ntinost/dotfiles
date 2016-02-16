@@ -57,7 +57,6 @@ set $monitor2 "VGA1"
 # General Configuration
 font pango: Iosevka Slab Medium 9.5
 floating_modifier $mod
-#hide_edge_borders both
 new_window pixel 4
 smart_borders on
 workspace_auto_back_and_forth yes
@@ -92,8 +91,8 @@ mode "  " {
   bindsym j resize grow height 10 px or 10 ppt
   bindsym k resize shrink height 10 px or 10 ppt
   bindsym l resize grow width 10 px or 10 ppt
-  bindsym Escape mode "default"
   bindsym q mode "default"
+  bindsym Control+bracketleft mode "default"
 }
 
 # Restart-Related Bindings
@@ -218,12 +217,11 @@ mode "$mpd_control" {
     bindsym XF86AudioRaiseVolume exec --no-startup-id mpc volume +3
 
     bindsym q mode "default"
-    bindsym Escape mode "default"
+    bindsym Control+bracketleft mode "default"
 	bindsym Return mode "default"
 }
 
 # Specialized code #3: System halter
-set $Locker mpc stop && sleep 1
 set $mode_system  (T)erminate session     (S)uspend
 set $mode_system_terminate  (S)hutdown     (R)eboot     (X) logout
 bindsym $mod+Pause mode "$mode_system"
@@ -231,7 +229,7 @@ mode "$mode_system" {
     bindsym t mode "$mode_system_terminate"
     bindsym s exec --no-startup-id systemctl suspend, mode "default"
     bindsym Return mode "default"
-    bindsym Escape mode "default"
+    bindsym Control+bracketleft mode "default"
     bindsym q mode "default"
 }
 mode "$mode_system_terminate" {
@@ -239,7 +237,7 @@ mode "$mode_system_terminate" {
    bindsym r exec --no-startup-id systemctl reboot, mode "default"
    bindsym x exec --no-startup-id i3-msg exit, mode "default"
    bindsym Return mode "default"
-   bindsym Escape mode "default"
+   bindsym Control+bracketleft mode "default"
    bindsym q mode "default"
 }
 
@@ -252,7 +250,7 @@ mode "$mode_gaps" {
         bindsym o mode "$mode_gaps_outer"
         bindsym i mode "$mode_gaps_inner"
         bindsym Return mode "default"
-        bindsym Escape mode "default"
+        bindsym Control+bracketleft mode "default"
         bindsym q mode "default"
 }
 
@@ -266,7 +264,7 @@ mode "$mode_gaps_inner" {
         bindsym Shift+0     gaps inner all set 0
 
         bindsym Return mode "default"
-        bindsym Escape mode "default"
+        bindsym Control+bracketleft mode "default"
 		bindsym q mode "default"
 }
 mode "$mode_gaps_outer" {
@@ -279,7 +277,7 @@ mode "$mode_gaps_outer" {
         bindsym Shift+0     gaps outer all set 0
 
         bindsym Return mode "default"
-        bindsym Escape mode "default"
+        bindsym Control+bracketleft mode "default"
 		bindsym q mode "default"
 }
 
