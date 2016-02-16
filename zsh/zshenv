@@ -9,6 +9,8 @@ export DOTFILES="$HOME"/.dotfiles
 
 export BROWSER=qutebrowser
 
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
 export EDITOR=vim
 export VISUAL=vim
 export PAGER=less
