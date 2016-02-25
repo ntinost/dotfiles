@@ -118,9 +118,12 @@
         Plugin 'mattn/emmet-vim'
     " }
 
-    " Themes {
+    " Themes & Look{
         " base16-ocean theme
         Plugin 'chriskempson/base16-vim'
+
+        " colorizer - colorize all text in the form #rrggbb or #rgb
+        Plugin 'lilydjwg/colorizer'
     " }
 
     call vundle#end()               " required
@@ -475,6 +478,10 @@
     "vim-xkbswitch {
         let g:XkbSwitchEnabled = 1
     "}
+
+	" colorizer {
+		nmap ,ct <Plug>Colorizer
+	"}
 
     if has("python")
         " python-mode {
