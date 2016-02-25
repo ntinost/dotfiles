@@ -185,6 +185,7 @@ for_window [class="qemu-system-x86_64"] layout tabbed
 
 # Bar
   bar {
+	font pango: Iosevka Slab Medium, FontAwesome  9.5
 	output $monitor1
     status_command i3blocks -c $DOTFILES/i3wm/i3bar/i3blocks
 	strip_workspace_numbers yes
