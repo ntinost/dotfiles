@@ -285,7 +285,7 @@
 
     if exists('+colorcolumn')
         " Automatically show the vertical line for files containing source code.
-        autocmd FileType c,cpp,java,python,javascript set colorcolumn=80
+        autocmd FileType c,cpp,java,python,javascript,matlab set colorcolumn=80
     endif
 
     " Show/hide vertical line.
@@ -381,6 +381,7 @@
         autocmd FileType python,sh,bash,zsh nnoremap <leader>r :w<cr> :!clear; ./%<cr>
         autocmd FileType c,cpp nnoremap <leader>r :!clear; ./%:r<cr>
         autocmd FileType java nnoremap <leader>r :!clear; java %:r<cr>
+        autocmd FileType matlab nnoremap <leader>r :!clear; octave %<cr>
     " }
 
     " Compile {

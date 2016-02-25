@@ -169,10 +169,12 @@ for_window [class="mpv"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="Simplescreenrecorder"] floating enable
 for_window [instance="sun-awt-X11-XFramePeer"] floating enable
-for_window [title="PyQt5Tutorial"] floating enable
+# You have to pause after displaying plots;
+# see http://stackoverflow.com/questions/6843014/getting-octave-to-plot-when-invoking-a-function-from-the-command-line
+for_window [class="Octave-gui"] floating enable
 
 # Tabbed
-for_window [class="VirtualBox"] layout tabbed
+for_window [class="qemu-system-x86_64"] layout tabbed
 
 # Widow Colors
 #                         border  background text    indicator
