@@ -23,7 +23,7 @@ font = Iosevka Slab 10
 
 foreground      = #c0c5ce
 foreground_bold = #c0c5ce
-background      = rgba(43, 48, 59, 0.5)
+background      = rgba(43, 48, 59, 0.8)
 
 # 16 color space
 color0  = #2b303b
