@@ -1,0 +1,1 @@
+mysql --auto-rehash -u root -p exercise

@@ -1,29 +1,29 @@
 scheme: "Ocean"
 author: "Chris Kempson (http://chriskempson.com)"
 dark-background:
-	base00: "#2b303b"
-	base01: "#343d46"
+	base00: "#2B303B"
+	base01: "#343D46"
 content:
-	base02: "#4f5b66"
-	base03: "#65737e"
-	base04: "#a7adba"
-	base05: "#c0c5ce"
+	base02: "#4F5B66"
+	base03: "#65737E"
+	base04: "#A7ADBA"
+	base05: "#C0C5CE"
 light-background:
-	base06: "#dfe1e8"
-	base07: "#eff1f5"
+	base06: "#DFE1E8"
+	base07: "#EFF1F5"
 red:
-	base08: "#bf616a"
+	base08: "#BF616A"
 orange:
-	base09: "#d08770"
+	base09: "#D08770"
 yellow:
-	base0A: "#ebcb8b"
+	base0A: "#EBCB8B"
 green:
-	base0B: "#a3be8c"
+	base0B: "#A3BE8C"
 cyan:
-	base0C: "#96b5b4"
+	base0C: "#96B5B4"
 blue:
-	base0D: "#8fa1b3"
+	base0D: "#8FA1B3"
 magenta:
-	base0E: "#b48ead"
+	base0E: "#B48EAD"
 brown:
-	base0F: "#ab7967"
+	base0F: "#AB7967"

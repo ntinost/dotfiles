@@ -14,8 +14,8 @@ cursor_shape = block
 scrollback_lines = 10000
 search_wrap = true
 
-#font = Hack Regular 10
-font = Iosevka Slab 10
+#font = Inconsolata-g 10
+font = IosevkaNL Slab 10
 
 [colors]
 # Base16 Ocean
@@ -23,7 +23,8 @@ font = Iosevka Slab 10
 
 foreground      = #c0c5ce
 foreground_bold = #c0c5ce
-background      = rgba(43, 48, 59, 0.8)
+#background      = #2b303b
+background      = rgba(43, 48, 59, 0.9)
 
 # 16 color space
 color0  = #2b303b
