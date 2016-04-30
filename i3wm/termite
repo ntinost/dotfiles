@@ -15,7 +15,7 @@ scrollback_lines = 10000
 search_wrap = true
 
 #font = Inconsolata-g 10
-font = IosevkaNL Slab 10
+font = Iosevka Term Slab 10
 
 [colors]
 # Base16 Ocean

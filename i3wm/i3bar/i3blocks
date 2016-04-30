@@ -13,6 +13,11 @@ command=$HOME/.dotfiles/i3wm/i3bar/unread_mails.sh
 interval=120
 label=
 
+[bandwidth]
+command=/usr/lib/i3blocks/bandwidth
+interval=1
+label=
+
 [load]
 command=$HOME/.dotfiles/i3wm/i3bar/load_average.sh
 interval=60

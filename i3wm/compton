@@ -1,8 +1,0 @@
-# Compton is the most popular simple X window compositor.
-# Composition is the only thing that keeps X bearable.
-# Fading
-fading = true;                  # Fade windows during opacity changes.
-fade-delta = 12;                # The time between steps in a fade in milliseconds. (default 10).
-fade-in-step = 0.15;            # Opacity change between steps while fading in. (default 0.028).
-fade-out-step = 0.15;           # Opacity change between steps while fading out. (default 0.03).
-no-fading-openclose = false;    # Fade windows in/out when opening/closing.

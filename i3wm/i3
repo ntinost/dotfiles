@@ -60,6 +60,7 @@ floating_modifier $mod
 new_window pixel 4
 smart_borders on
 workspace_auto_back_and_forth yes
+gaps inner 10
 
 # Window-Related Bindings
 bindsym $mod+Shift+q kill
@@ -117,10 +118,12 @@ mode "  " {
 
 # Startup Programs
 	exec --no-startup-id xrandr --output $monitor1 --auto --output $monitor2 --off
-	exec_always --no-startup-id hsetroot -fill $DOTFILES/i3wm/launch.jpg
+	exec_always --no-startup-id hsetroot -center $DOTFILES/i3wm/2560outrun16wp.png
 	exec_always --no-startup-id setxkbmap -model pc104 -layout pl,gr -option grp:alt_space_toggle,caps:ctrl_modifier
 	exec xset -dpms s off
-	exec --no-startup-id compton --config $DOTFILES/i3wm/compton
+	exec --no-startup-id compton -f
+	exec --no-startup-id termite
+	exec --no-startup-id termite -e ranger
 	exec --no-startup-id qutebrowser
 
 # Workspace-Related Bindings
@@ -151,14 +154,14 @@ workspace $workspace1 output $monitor1
 workspace $workspace2 output $monitor1
 workspace $workspace3 output $monitor1
 workspace $workspace4 output $monitor1
-workspace $workspace5 output $monitor1
+workspace $workspace5 output $monitor2
 workspace $workspace6 output $monitor1
 workspace $workspace10 output $monitor1
 
 # Monitor modes
-bindsym $mod+KP_End exec --no-startup-id xrandr --output VGA1 --auto --left-of HDMI2 --auto --primary
-bindsym $mod+KP_Down exec --no-startup-id xrandr --output $monitor1 --auto --output $monitor2 --off
-bindsym $mod+KP_Next exec --no-startup-id xrandr --output $monitor1 --off --output $monitor2 --auto
+bindsym $mod+KP_End exec --no-startup-id xrandr --output VGA1 --auto --left-of HDMI2 --auto --primary; exec hsetroot -center $DOTFILES/i3wm/2560outrun16wp.png
+bindsym $mod+KP_Down exec --no-startup-id xrandr --output $monitor1 --auto --output $monitor2 --off; exec hsetroot -center $DOTFILES/i3wm/2560outrun16wp.png
+#bindsym $mod+KP_Next exec --no-startup-id xrandr --output $monitor1 --off --output $monitor2 --auto; exec hsetroot -center $DOTFILES/i3wm/2560outrun16wp.png
 
 # CD
 bindsym $mod+KP_Left exec --no-startup-id eject
@@ -178,6 +181,9 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="Simplescreenrecorder"] floating enable
+for_window [class="java"] floating enable
+for_window [class="Java"] floating enable
+for_window [class="com*"] floating enable
 for_window [instance="sun-awt-X11-XFramePeer"] floating enable
 # You have to pause after displaying plots;
 # see http://stackoverflow.com/questions/6843014/getting-octave-to-plot-when-invoking-a-function-from-the-command-line
@@ -228,7 +234,7 @@ mode "$mpd_control" {
     bindsym p exec --no-startup-id mpc toggle
     bindsym l exec --no-startup-id mpc next
     bindsym h exec --no-startup-id mpc prev
-    bindsym r exec --no-startup-id mpc repeat && mpc single
+    bindsym r exec --no-startup-id mpc single
     bindsym equal exec --no-startup-id mpc volume +3
     bindsym minus exec --no-startup-id mpc volume -3
     bindsym XF86AudioMute exec --no-startup-id ponymix toggle && pkill -RTMIN+1 i3blocks

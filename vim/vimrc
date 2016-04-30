@@ -163,12 +163,12 @@
     set ttimeoutlen=10
 
     set background=dark
-    if &t_Co > 255 || has('gui_running')
-    "if has('gui_running')
+    " if &t_Co > 255 || has('gui_running')
+    if has('gui_running')
         let base16colorspace=256
         colorscheme base16-ocean
         set guioptions=
-        set guifont=IosevkaNL\ Slab\ Regular\ 10
+        set guifont=Iosevka\ Term\ Slab\ Regular\ 10
         hi CursorLineNr term=bold ctermfg=8 ctermbg=18 gui=bold guifg=#ebcb8b guibg=#343d46
     else
         colorscheme darkblue
@@ -494,7 +494,7 @@
 	"}
 
     " delimitMate {
-        au FileType cpp,c let b:delimitMate_matchpairs = '(:),{:},[:]'
+        au FileType cpp,c,java,python let b:delimitMate_matchpairs = '(:),{:},[:]'
     " }
 
     " tex
