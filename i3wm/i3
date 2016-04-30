@@ -118,7 +118,7 @@ mode "  " {
 
 # Startup Programs
 	exec --no-startup-id xrandr --output $monitor1 --auto --output $monitor2 --off
-	exec_always --no-startup-id hsetroot -center $DOTFILES/i3wm/2560outrun16wp.png
+	exec_always --no-startup-id hsetroot -center $DOTFILES/2560outrun16wp.png
 	exec_always --no-startup-id setxkbmap -model pc104 -layout pl,gr -option grp:alt_space_toggle,caps:ctrl_modifier
 	exec xset -dpms s off
 	exec --no-startup-id compton -f
@@ -159,9 +159,9 @@ workspace $workspace6 output $monitor1
 workspace $workspace10 output $monitor1
 
 # Monitor modes
-bindsym $mod+KP_End exec --no-startup-id xrandr --output VGA1 --auto --left-of HDMI2 --auto --primary; exec hsetroot -center $DOTFILES/i3wm/2560outrun16wp.png
-bindsym $mod+KP_Down exec --no-startup-id xrandr --output $monitor1 --auto --output $monitor2 --off; exec hsetroot -center $DOTFILES/i3wm/2560outrun16wp.png
-#bindsym $mod+KP_Next exec --no-startup-id xrandr --output $monitor1 --off --output $monitor2 --auto; exec hsetroot -center $DOTFILES/i3wm/2560outrun16wp.png
+bindsym $mod+KP_End exec --no-startup-id xrandr --output VGA1 --auto --left-of HDMI2 --auto --primary; exec hsetroot -center $DOTFILES/2560outrun16wp.png
+bindsym $mod+KP_Down exec --no-startup-id xrandr --output $monitor1 --auto --output $monitor2 --off; exec hsetroot -center $DOTFILES/2560outrun16wp.png
+#bindsym $mod+KP_Next exec --no-startup-id xrandr --output $monitor1 --off --output $monitor2 --auto; exec hsetroot -center $DOTFILES/2560outrun16wp.png
 
 # CD
 bindsym $mod+KP_Left exec --no-startup-id eject
