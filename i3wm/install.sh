@@ -6,17 +6,12 @@ fi
 
 echo -e "Configuring full i3wm environment...\n"
 
-for i in i3 termite; do
-	if [ -f ~/.config/i3/config ]; then
-		echo "→ backup existing ~/.config/${i}/config file to ~/.config/${i}/config.orig"
-		mkdir ~/.config/$i
-		mv ~/.config/$i/config ~/.config/$i/config.orig
-	fi
-done
+if [ -f ~/.config/i3/config ]; then
+	echo "→ backup existing ~/.config/i3/config file to ~/.config/i3/config.orig"
+	mv ~/.config/i3/config ~/.config/i3/config.orig
+fi
 
-for i in i3 termite; do
-	echo "→ symlink ~/.config/${i}/config to the real config file"
-	ln -sf "$DOTFILES/i3wm/$i" ~/.config/$i/config
-done
+echo "→ symlink ~/.config/i3/config to the real config file"
+ln -sf "$DOTFILES/i3wm/i3" ~/.config/i3/config
 
 echo -e "\nDone!\n"
