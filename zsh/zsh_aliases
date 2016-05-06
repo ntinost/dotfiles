@@ -75,4 +75,5 @@
 	alias atronach_mount='sshfs ksardas@atronach:$HOME -p 39901 /mnt/atronach'
 	alias atronach_umount='fusermount -u /mnt/atronach'
 	alias speedometer='speedometer -t enp3s0 -r enp3s0'
+	alias mountiso="udisksctl loop-setup -r -f"
 # }

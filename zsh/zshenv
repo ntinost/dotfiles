@@ -7,7 +7,7 @@ fi
 
 export DOTFILES="$HOME"/.dotfiles
 
-export BROWSER=firefox
+export BROWSER=qutebrowser
 
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
@@ -19,10 +19,10 @@ if [[ -z "$LANG" ]]; then
   export LANG=en_US.UTF-8
 fi
 
-#export WINEARCH=win32
-#export WINEDEBUG="-all"
-#export WINEPREFIX=/data/disk0/ksardas/wine
+export WINEARCH=win32
+export WINEDEBUG="-all"
+export WINEPREFIX=/data/disk0/ksardas/wine
 export SDL_AUDIODRIVER="pulse" # XXX why did I set this in the first place
-#export WINEDLLOVERRIDES="winemenubuilder.exe,mscoree,mshtml=d"
+export WINEDLLOVERRIDES="winemenubuilder.exe,mscoree,mshtml=d"
 export VDPAU_DRIVER=va_gl
-#export STEAM_RUNTIME=0
+export STEAM_RUNTIME=0

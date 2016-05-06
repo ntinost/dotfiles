@@ -20,3 +20,8 @@ path+=("$DOTFILES/scripts/")
 # virtualenvwrapper
 export WORKON_HOME=~/.virtualenvs
 source /usr/bin/virtualenvwrapper.sh
+
+if [[ $TERM == xterm-termite ]]; then
+	  . /etc/profile.d/vte.sh
+	    __vte_osc7
+fi
