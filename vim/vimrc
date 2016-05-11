@@ -63,8 +63,6 @@
         " Usage: for example type <leader><leader>w and navigate quickly
         Plugin 'easymotion/vim-easymotion'
 
-        " Use a non-latin lang on INSERT without toggling it
-        Plugin 'lyokha/vim-xkbswitch'
     " }
 
     " General Programming {
@@ -118,10 +116,6 @@
         Plugin 'mattn/emmet-vim'
     " }
 
-    " TeX {
-        Plugin 'lervag/vimtex'
-    " }
-
     " Themes & Look{
         " base16-ocean theme
         Plugin 'chriskempson/base16-vim'
@@ -163,8 +157,7 @@
     set ttimeoutlen=10
 
     set background=dark
-    " if &t_Co > 255 || has('gui_running')
-    if has('gui_running')
+    if &t_Co > 255 || has('gui_running')
         let base16colorspace=256
         colorscheme base16-ocean
         set guioptions=

@@ -53,6 +53,7 @@ set $workspace9 "9: "
 set $workspace10 "10: "
 set $monitor1 "HDMI2"
 set $monitor2 "VGA1"
+set $wall "hsetroot -solid '#2b303b'"
 
 # General Configuration
 font pango: Iosevka Slab Medium 9.5
@@ -60,7 +61,7 @@ floating_modifier $mod
 new_window pixel 4
 smart_borders on
 workspace_auto_back_and_forth yes
-gaps inner 10
+#gaps inner 10
 
 # Window-Related Bindings
 bindsym $mod+Shift+q kill
@@ -118,7 +119,7 @@ mode "  " {
 
 # Startup Programs
 	exec --no-startup-id xrandr --output $monitor1 --auto --output $monitor2 --off
-	exec_always --no-startup-id hsetroot -center $DOTFILES/2560outrun16wp.png
+	exec_always --no-startup-id $wall
 	exec_always --no-startup-id setxkbmap -model pc104 -layout pl,gr -option grp:alt_space_toggle,caps:ctrl_modifier
 	exec xset -dpms s off
 	exec --no-startup-id compton -f
@@ -159,9 +160,9 @@ workspace $workspace6 output $monitor1
 workspace $workspace10 output $monitor1
 
 # Monitor modes
-bindsym $mod+KP_End exec --no-startup-id xrandr --output VGA1 --auto --left-of HDMI2 --auto --primary; exec hsetroot -center $DOTFILES/2560outrun16wp.png
-bindsym $mod+KP_Down exec --no-startup-id xrandr --output $monitor1 --auto --output $monitor2 --off; exec hsetroot -center $DOTFILES/2560outrun16wp.png
-#bindsym $mod+KP_Next exec --no-startup-id xrandr --output $monitor1 --off --output $monitor2 --auto; exec hsetroot -center $DOTFILES/2560outrun16wp.png
+bindsym $mod+KP_End exec --no-startup-id xrandr --output VGA1 --auto --left-of HDMI2 --auto --primary
+bindsym $mod+KP_Down exec --no-startup-id xrandr --output $monitor1 --auto --output $monitor2 --off
+bindsym $mod+KP_Next exec --no-startup-id xrandr --output $monitor1 --off --output $monitor2 --auto
 
 # CD
 bindsym $mod+KP_Left exec --no-startup-id eject
@@ -181,23 +182,19 @@ for_window [class="Pavucontrol"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="Simplescreenrecorder"] floating enable
-for_window [class="java"] floating enable
-for_window [class="Java"] floating enable
-for_window [class="com*"] floating enable
+for_window [class="(?i)java"] floating enable
+for_window [class="com.*$"] floating enable
 for_window [instance="sun-awt-X11-XFramePeer"] floating enable
-# You have to pause after displaying plots;
-# see http://stackoverflow.com/questions/6843014/getting-octave-to-plot-when-invoking-a-function-from-the-command-line
 for_window [class="Octave-gui"] floating enable
 for_window [class="Godot"] floating enable
 for_window [class="Hamster"] floating enable
 for_window [class="Skype"] floating enable
-for_window [title="Messenger"] floating enable
 
 # Tabbed
 for_window [class="qemu-system-x86_64"] layout tabbed
 for_window [class="VirtualBox"] layout tabbed
 
-# Widow Colors
+# Window Colors
 #                         border  background text    indicator
   client.focused          $base03 $base03    $base07 $base0F
   client.focused_inactive $base01 $base01    $base03 $base0F

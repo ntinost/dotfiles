@@ -22,7 +22,7 @@ fi
 export WINEARCH=win32
 export WINEDEBUG="-all"
 export WINEPREFIX=/data/disk0/ksardas/wine
-export SDL_AUDIODRIVER="pulse" # XXX why did I set this in the first place
+export SDL_AUDIODRIVER="pulse"
 export WINEDLLOVERRIDES="winemenubuilder.exe,mscoree,mshtml=d"
 export VDPAU_DRIVER=va_gl
 export STEAM_RUNTIME=0
