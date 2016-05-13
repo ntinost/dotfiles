@@ -61,7 +61,7 @@ floating_modifier $mod
 new_window pixel 4
 smart_borders on
 workspace_auto_back_and_forth yes
-#gaps inner 10
+gaps inner 5
 
 # Window-Related Bindings
 bindsym $mod+Shift+q kill
@@ -104,28 +104,30 @@ mode "  " {
 # Program-Related Bindings
   	bindsym $mod+Return exec termite
   	bindsym $mod+d exec rofi -show run -eh 2
-	bindcode Mod1+65 exec --no-startup-id pkill -RTMIN+1 i3blocks
+	bindcode Mod1+65 exec  pkill -RTMIN+1 i3blocks
     bindsym $mod+p exec pavucontrol
     bindsym Print exec scrot; exec notify-send "Screenshot taken"
 
 # Volume & Media Bindings
-  	bindsym XF86AudioMute exec --no-startup-id ponymix toggle && pkill -RTMIN+1 i3blocks
-  	bindsym XF86AudioLowerVolume exec --no-startup-id ponymix decrease 3 && pkill -RTMIN+1 i3blocks
-  	bindsym XF86AudioRaiseVolume exec --no-startup-id ponymix increase 3 && pkill -RTMIN+1 i3blocks
+  	bindsym XF86AudioMute exec  ponymix toggle && pkill -RTMIN+1 i3blocks
+  	bindsym XF86AudioLowerVolume exec  ponymix decrease 3 && pkill -RTMIN+1 i3blocks
+  	bindsym XF86AudioRaiseVolume exec  ponymix increase 3 && pkill -RTMIN+1 i3blocks
   	bindsym XF86AudioStop exec mpc stop
   	bindsym XF86AudioPlay exec mpc toggle
   	bindsym XF86AudioNext exec mpc next
   	bindsym XF86AudioPrev exec mpc prev
 
 # Startup Programs
-	exec --no-startup-id xrandr --output $monitor1 --auto --output $monitor2 --off
-	exec_always --no-startup-id $wall
-	exec_always --no-startup-id setxkbmap -model pc104 -layout pl,gr -option grp:alt_space_toggle,caps:ctrl_modifier
+	exec --output $monitor1 --auto --output $monitor2 --off
+	exec_always $wall
+	exec setxkbmap -model pc104 -layout pl,gr -option grp:alt_space_toggle,ctrl:nocaps
+	exec xcape -e 'Control_L=Escape'
 	exec xset -dpms s off
-	exec --no-startup-id compton -f
-	exec --no-startup-id termite
-	exec --no-startup-id termite -e ranger
-	exec --no-startup-id qutebrowser
+	exec compton -f
+	exec termite
+	exec termite -e ranger
+	exec qutebrowser
+
 
 # Workspace-Related Bindings
 	bindsym $mod+1 workspace $workspace1
@@ -160,16 +162,16 @@ workspace $workspace6 output $monitor1
 workspace $workspace10 output $monitor1
 
 # Monitor modes
-bindsym $mod+KP_End exec --no-startup-id xrandr --output VGA1 --auto --left-of HDMI2 --auto --primary
-bindsym $mod+KP_Down exec --no-startup-id xrandr --output $monitor1 --auto --output $monitor2 --off
-bindsym $mod+KP_Next exec --no-startup-id xrandr --output $monitor1 --off --output $monitor2 --auto
+bindsym $mod+KP_End exec  xrandr --output VGA1 --auto --left-of HDMI2 --auto --primary
+bindsym $mod+KP_Down exec  xrandr --output $monitor1 --auto --output $monitor2 --off
+bindsym $mod+KP_Next exec  xrandr --output $monitor1 --off --output $monitor2 --auto
 
 # CD
-bindsym $mod+KP_Left exec --no-startup-id eject
-bindsym $mod+KP_Begin exec --no-startup-id eject -t
+bindsym $mod+KP_Left exec  eject
+bindsym $mod+KP_Begin exec  eject -t
 
 # backlight
-bindsym $mod+KP_Right exec --no-startup-id  sleep 1 && xset dpms force off
+bindsym $mod+KP_Right exec   sleep 1 && xset dpms force off
 
 # Program Workspaces
 assign [class="qutebrowser"] $workspace2
@@ -189,6 +191,7 @@ for_window [class="Octave-gui"] floating enable
 for_window [class="Godot"] floating enable
 for_window [class="Hamster"] floating enable
 for_window [class="Skype"] floating enable
+for_window [class="(?i)gpick"] floating enable
 
 # Tabbed
 for_window [class="qemu-system-x86_64"] layout tabbed
@@ -227,16 +230,16 @@ bindsym $mod+y fullscreen disable; floating enable; resize set 500 290; sticky e
 set $mpd_control MPD:   (S),   (P),   (H),   (L),   (R),   (-),   (=)
 bindsym $mod+m mode "$mpd_control"
 mode "$mpd_control" {
-    bindsym s exec --no-startup-id mpc stop
-    bindsym p exec --no-startup-id mpc toggle
-    bindsym l exec --no-startup-id mpc next
-    bindsym h exec --no-startup-id mpc prev
-    bindsym r exec --no-startup-id mpc single
-    bindsym equal exec --no-startup-id mpc volume +3
-    bindsym minus exec --no-startup-id mpc volume -3
-    bindsym XF86AudioMute exec --no-startup-id ponymix toggle && pkill -RTMIN+1 i3blocks
-    bindsym XF86AudioLowerVolume exec --no-startup-id mpc volume -3
-    bindsym XF86AudioRaiseVolume exec --no-startup-id mpc volume +3
+    bindsym s exec mpc stop
+    bindsym p exec mpc toggle
+    bindsym l exec mpc next
+    bindsym h exec mpc prev
+    bindsym r exec mpc single
+    bindsym equal exec mpc volume +3
+    bindsym minus exec mpc volume -3
+    bindsym XF86AudioMute exec ponymix toggle && pkill -RTMIN+1 i3blocks
+    bindsym XF86AudioLowerVolume exec mpc volume -3
+    bindsym XF86AudioRaiseVolume exec mpc volume +3
 
     bindsym q mode "default"
     bindsym Control+bracketleft mode "default"
@@ -249,15 +252,15 @@ set $mode_system_terminate  (S)hutdown     (R)eboot     (X) logout
 bindsym $mod+Pause mode "$mode_system"
 mode "$mode_system" {
     bindsym t mode "$mode_system_terminate"
-    bindsym s exec --no-startup-id systemctl suspend, mode "default"
+    bindsym s exec systemctl suspend, mode "default"
     bindsym Return mode "default"
     bindsym Control+bracketleft mode "default"
     bindsym q mode "default"
 }
 mode "$mode_system_terminate" {
-   bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
-   bindsym r exec --no-startup-id systemctl reboot, mode "default"
-   bindsym x exec --no-startup-id i3-msg exit, mode "default"
+   bindsym s exec systemctl poweroff -i, mode "default"
+   bindsym r exec systemctl reboot, mode "default"
+   bindsym x exec i3-msg exit, mode "default"
    bindsym Return mode "default"
    bindsym Control+bracketleft mode "default"
    bindsym q mode "default"
