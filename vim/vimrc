@@ -158,7 +158,6 @@
 
     set background=dark
     if has('gui_running')
-        let base16colorspace=256
         colorscheme solarized
         set guioptions=
         set guifont=Iosevka\ Term\ Slab\ Regular\ 10
