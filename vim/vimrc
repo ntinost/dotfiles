@@ -162,6 +162,7 @@
         colorscheme base16-ocean
         set guioptions=
         set guifont=Iosevka\ Term\ Slab\ Regular\ 10
+        "set guifont=Terminus\ 10
         hi CursorLineNr term=bold ctermfg=8 ctermbg=18 gui=bold guifg=#ebcb8b guibg=#343d46
     else
         colorscheme darkblue
@@ -197,6 +198,12 @@
 
     " Toggle background quickly
     map <leader>b :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+
+    " Open in browsers - works correctly on gui only, because of F12
+    nnoremap <F12>q :exe ':silent !qutebrowser %'<CR>
+    nnoremap <F12>f :exe ':silent !firefox %'<CR>
+    nnoremap <F12>g :exe ':silent !google-chrome-stable %'<CR>
+
 " }
 
 " Clipboard {
