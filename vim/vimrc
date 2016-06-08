@@ -117,8 +117,8 @@
     " }
 
     " Themes & Look{
-        " base16-ocean theme
-        Plugin 'chriskempson/base16-vim'
+        " solarized theme
+        Plugin 'altercation/vim-colors-solarized'
 
         " colorizer - colorize all text in the form #rrggbb or #rgb
         Plugin 'lilydjwg/colorizer'
@@ -157,13 +157,12 @@
     set ttimeoutlen=10
 
     set background=dark
-    if &t_Co > 255 || has('gui_running')
+    if has('gui_running')
         let base16colorspace=256
-        colorscheme base16-ocean
+        colorscheme solarized
         set guioptions=
         set guifont=Iosevka\ Term\ Slab\ Regular\ 10
         "set guifont=Terminus\ 10
-        hi CursorLineNr term=bold ctermfg=8 ctermbg=18 gui=bold guifg=#ebcb8b guibg=#343d46
     else
         colorscheme darkblue
     endif
