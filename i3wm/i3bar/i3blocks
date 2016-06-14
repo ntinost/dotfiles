@@ -4,12 +4,12 @@ command=/usr/lib/i3block/$BLOCK_NAME
 color=#c0c5ce
 
 [mpd]
-command=$HOME/.dotfiles/i3wm/i3bar/mpd.sh
+command=$DOTFILES/i3wm/i3bar/mpd.sh
 interval=5
 label=
 
 [email]
-command=$HOME/.dotfiles/i3wm/i3bar/unread_mails.sh
+command=$DOTFILES/i3wm/i3bar/unread_mails.sh
 interval=120
 label=
 
@@ -19,12 +19,12 @@ interval=1
 label=
 
 [load]
-command=$HOME/.dotfiles/i3wm/i3bar/load_average.sh
+command=$DOTFILES/i3wm/i3bar/load_average.sh
 interval=60
 label=
 
 [disk]
-command=$HOME/.dotfiles/i3wm/i3bar/disk.sh
+command=$DOTFILES/i3wm/i3bar/disk.sh
 interval=3600
 label=
 
@@ -35,7 +35,7 @@ interval=once
 signal=1
 
 [language]
-command=$HOME/.dotfiles/i3wm/i3bar/lang.sh
+command=$DOTFILES/i3wm/i3bar/lang.sh
 interval=once
 signal=1
 label=

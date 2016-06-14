@@ -1,5 +1,5 @@
 # small gVim color fix
 style "vimfix" {
-  bg[NORMAL] = "#2b303b"
+  bg[NORMAL] = "#002B36"
   }
 widget "vim-main-window.*GtkForm" style "vimfix"
