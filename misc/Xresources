@@ -1,22 +1,22 @@
 ! Base16 Solarized
 ! Scheme: Ethan Schoonover (http://ethanschoonover.com/solarized)
 
-#define base00 #002b36
+#define base00 #002B36
 #define base01 #073642
-#define base02 #586e75
-#define base03 #657b83
+#define base02 #586E75
+#define base03 #657B83
 #define base04 #839496
-#define base05 #93a1a1
-#define base06 #eee8d5
-#define base07 #fdf6e3
-#define base08 #dc322f
-#define base09 #cb4b16
-#define base0A #b58900
+#define base05 #93A1A1
+#define base06 #EEE8D5
+#define base07 #FDF6E3
+#define base08 #DC322F
+#define base09 #CB4B16
+#define base0A #B58900
 #define base0B #859900
-#define base0C #2aa198
-#define base0D #268bd2
-#define base0E #6c71c4
-#define base0F #d33682
+#define base0C #2AA198
+#define base0D #268BD2
+#define base0E #6C71C4
+#define base0F #D33682
 
 ! Rofi config
 !rofi.fullscreen: true
@@ -27,15 +27,15 @@ rofi.font: \Iosevka \Term \Slab \Regular \15
 !rofi.eh: 10
 rofi.lines: 10
 rofi.color-enabled:	true
-rofi.color-normal: base00, base04, base01, base0D, base00
-rofi.color-active: base00, base0D, base01, base0D, base0D
-rofi.color-urgent: base00, base0F, base01, base0D, base08
-rofi.color-window: base00, base00, base00
+rofi.color-normal: base07, base03, base06, base0D, base07
+rofi.color-active: base07, base0D, base06, base0D, base0D
+rofi.color-urgent: base07, base0F, base06, base0D, base08
+rofi.color-window: base07, base07, base07
 
 
-*foreground:   base05
-*background:   base00
-*cursorColor:  base05
+*foreground:   base02
+*background:   base07
+*cursorColor:  base02
 
 *color0:       base00
 *color1:       base08
@@ -55,8 +55,7 @@ rofi.color-window: base00, base00, base00
 *color14:      base0C
 *color15:      base07
 
-! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
-! use 'shell' template to set these if necessary
+! 256 color space
 *color16:      base09
 *color17:      base0F
 *color18:      base01
@@ -65,17 +64,18 @@ rofi.color-window: base00, base00, base00
 *color21:      base06
 
 ! Urxvt config
-URxvt*scrollColor:                    #93a1a1
-URxvt*highlightColor:                 #586e75
+URxvt*depth: 32
+URxvt*scrollColor:                    #93A1A1
+URxvt*highlightColor:                 #FDF6E3
 URxvt*highlightTextColor:             #839496
 ! How many lines should scroll save
 URxvt.saveLines: 2000
 ! Make urgent on System Bell
 URxvt.urgentOnBell: True
 ! Font
-URxvt*font:		xft:Terminus:size=9
-!URxvt*font:		xft:Iosevka\ Term:size=9
-!URxvt.boldFont: xft:Iosevka\ Term:size=9
+!URxvt*font:		xft:Terminus:size=9
+URxvt*font:		xft:Iosevka\ Term:size=8
+URxvt.boldFont: xft:Iosevka\ Term:size=8
 !URxvt.letterSpace: -1
 !-*-{ Xft settings
 Xft*dpi:       96

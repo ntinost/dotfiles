@@ -1,7 +1,7 @@
 # Global properties - these are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
 command=/usr/lib/i3block/$BLOCK_NAME
-color=#c0c5ce
+color=#586e75
 
 [mpd]
 command=$DOTFILES/i3wm/i3bar/mpd.sh
@@ -17,6 +17,11 @@ label=
 command=/usr/lib/i3blocks/bandwidth
 interval=1
 label=
+
+[vpn]
+command=$DOTFILES/i3wm/i3bar/vpn.sh
+interval=10
+label=VPN
 
 [load]
 command=$DOTFILES/i3wm/i3bar/load_average.sh

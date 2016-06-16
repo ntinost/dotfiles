@@ -156,14 +156,14 @@
     set ttimeout
     set ttimeoutlen=10
 
-    set background=dark
+    set background=light
     if has('gui_running')
         colorscheme solarized
         set guioptions=
         set guifont=Iosevka\ Term\ Slab\ Regular\ 10
         "set guifont=Terminus\ 10
     else
-        colorscheme darkblue
+        colorscheme default
     endif
 " }
 
