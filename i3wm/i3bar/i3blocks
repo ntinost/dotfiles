@@ -28,6 +28,18 @@ command=$DOTFILES/i3wm/i3bar/load_average.sh
 interval=60
 label=
 
+[memory]
+command=$DOTFILES/i3wm/i3bar/memory.sh
+label=
+instance=mem;free
+interval=30
+
+[temperature]
+command=$DOTFILES/i3wm/i3bar/temperature.sh
+instance=Core
+label=
+interval=5
+
 [disk]
 command=$DOTFILES/i3wm/i3bar/disk.sh
 interval=3600
