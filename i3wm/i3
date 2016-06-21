@@ -37,16 +37,16 @@ set $base0C #2aa198
 set $base0D #268bd2
 set $base0E #6c71c4
 set $base0F #d33682
-set $workspace1 "1: "
-set $workspace2 "2: "
-set $workspace3 "3: "
-set $workspace4 "4: "
-set $workspace5 "5: "
-set $workspace6 "6: "
-set $workspace7 "7: "
-set $workspace8 "8: "
-set $workspace9 "9: "
-set $workspace10 "10: "
+set $workspace1 "1:  "
+set $workspace2 "2:  "
+set $workspace3 "3:  "
+set $workspace4 "4:  "
+set $workspace5 "5:  "
+set $workspace6 "6:  "
+set $workspace7 "7:  "
+set $workspace8 "8:  "
+set $workspace9 "9:  "
+set $workspace10 "10:  "
 set $monitor1 "HDMI2"
 set $monitor2 "VGA1"
 set $wall "hsetroot -fill $DOTFILES/i3wm/wallhaven-105895.jpg"
@@ -54,7 +54,7 @@ set $wall "hsetroot -fill $DOTFILES/i3wm/wallhaven-105895.jpg"
 # General Configuration
 font pango: Iosevka Term Slab Medium 9.5
 floating_modifier $mod
-new_window pixel 4
+new_window pixel 5
 smart_borders on
 workspace_auto_back_and_forth yes
 gaps inner 5
@@ -89,8 +89,8 @@ mode "  " {
   bindsym j resize grow height 10 px or 10 ppt
   bindsym k resize shrink height 10 px or 10 ppt
   bindsym l resize grow width 10 px or 10 ppt
-  bindsym q mode "default"
   bindsym Control+bracketleft mode "default"
+  bindsym Escape mode "default"
 }
 
 # Restart-Related Bindings
@@ -104,6 +104,7 @@ mode "  " {
 	bindcode Mod1+65 exec pkill -RTMIN+1 i3blocks
     bindsym $mod+p exec pavucontrol
     bindsym Print exec scrot; exec notify-send "Screenshot taken"
+	bindsym $mod+Shift+m exec --no-startup-id pkill -USR1 redshift
 
 # Volume & Media Bindings
   	bindsym XF86AudioMute exec ponymix toggle && pkill -RTMIN+1 i3blocks
@@ -115,10 +116,9 @@ mode "  " {
   	bindsym XF86AudioPrev exec mpc prev
 
 # Startup Programs
+	exec xset -dpms s off
 	exec --no-startup-id xrandr --output $monitor1 --auto --output $monitor2 --off
 	exec_always $wall
-	exec xcape -e 'Control_L=Escape'
-	exec xset -dpms s off
 	exec compton -f
 	exec termite -e ranger
 
@@ -155,7 +155,7 @@ workspace $workspace6 output $monitor1
 workspace $workspace10 output $monitor1
 
 # Monitor modes
-bindsym $mod+KP_End exec  xrandr --output $monitor2 --auto --left-of $monitor1 --auto --primary1 && $wall
+bindsym $mod+KP_End exec  xrandr --output $monitor2 --auto --left-of $monitor1 --auto --primary && $wall
 bindsym $mod+KP_Down exec  xrandr --output $monitor1 --auto --output $monitor2 --off && $wall
 bindsym $mod+KP_Next exec  xrandr --output $monitor1 --off --output $monitor2 --auto && $wall
 
@@ -226,8 +226,8 @@ mode "$mpd_control" {
     bindsym XF86AudioLowerVolume exec mpc volume -3
     bindsym XF86AudioRaiseVolume exec mpc volume +3
 
-    bindsym q mode "default"
     bindsym Control+bracketleft mode "default"
+    bindsym Escape mode "default"
 	bindsym Return mode "default"
 }
 
@@ -240,7 +240,7 @@ mode "$mode_system" {
     bindsym s exec systemctl suspend, mode "default"
     bindsym Return mode "default"
     bindsym Control+bracketleft mode "default"
-    bindsym q mode "default"
+    bindsym Escape mode "default"
 }
 mode "$mode_system_terminate" {
    bindsym s exec systemctl poweroff -i, mode "default"
@@ -248,7 +248,7 @@ mode "$mode_system_terminate" {
    bindsym x exec i3-msg exit, mode "default"
    bindsym Return mode "default"
    bindsym Control+bracketleft mode "default"
-   bindsym q mode "default"
+   bindsym Escape mode "default"
 }
 
 # Specialized code #3: Gaps resize
@@ -260,8 +260,8 @@ mode "$mode_gaps" {
         bindsym o mode "$mode_gaps_outer"
         bindsym i mode "$mode_gaps_inner"
         bindsym Return mode "default"
+        bindsym Escape mode "default"
         bindsym Control+bracketleft mode "default"
-        bindsym q mode "default"
 }
 
 mode "$mode_gaps_inner" {
@@ -275,7 +275,7 @@ mode "$mode_gaps_inner" {
 
         bindsym Return mode "default"
         bindsym Control+bracketleft mode "default"
-		bindsym q mode "default"
+        bindsym Escape mode "default"
 }
 mode "$mode_gaps_outer" {
         bindsym plus  gaps outer current plus 5
@@ -288,6 +288,6 @@ mode "$mode_gaps_outer" {
 
         bindsym Return mode "default"
         bindsym Control+bracketleft mode "default"
-		bindsym q mode "default"
+        bindsym Escape mode "default"
 }
 
