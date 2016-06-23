@@ -21,22 +21,27 @@
 #		#2: System halter
 #		#3: Gaps resize
 #
+# Base16 Solarized by Ethan Schoonover (http://ethanschoonover.com/solarized)
+# template by Matt Parnell, @parnmatt
 
 # Constants
 set $mod Mod4
-set $base02 #586e75
-set $base03 #657b83
-set $base05 #93a1a1
-set $base06 #eee8d5
-set $base07 #fdf6e3
-set $base08 #dc322f
-set $base09 #cb4b16
-set $base0A #b58900
+set $base00 #002B36
+set $base01 #073642
+set $base02 #586E75
+set $base03 #657B83
+set $base04 #839496
+set $base05 #93A1A1
+set $base06 #EEE8D5
+set $base07 #FDF6E3
+set $base08 #DC322F
+set $base09 #CB4B16
+set $base0A #B58900
 set $base0B #859900
-set $base0C #2aa198
-set $base0D #268bd2
-set $base0E #6c71c4
-set $base0F #d33682
+set $base0C #2AA198
+set $base0D #268BD2
+set $base0E #6C71C4
+set $base0F #D33682
 set $workspace1 "1:  "
 set $workspace2 "2:  "
 set $workspace3 "3:  "
@@ -49,7 +54,7 @@ set $workspace9 "9:  "
 set $workspace10 "10:  "
 set $monitor1 "HDMI2"
 set $monitor2 "VGA1"
-set $wall "hsetroot -fill $DOTFILES/i3wm/wallhaven-105895.jpg"
+set $wall "hsetroot -fill $DOTFILES/i3wm/wallhaven-93962.jpg"
 
 # General Configuration
 font pango: Iosevka Term Slab Medium 9.5
@@ -187,11 +192,11 @@ for_window [class="qemu-system-x86_64"] layout tabbed
 for_window [class="VirtualBox"] layout tabbed
 
 # Window Colors
-#                         border  background text    indicator
-client.focused $base0D $base0D $base07 $base06
-client.focused_inactive $base02 $base02 $base03 $base06
-client.unfocused $base06 $base06 $base03 $base06
-client.urgent $base02 $base08 $base07 $base08
+#				border  bg 	text    indicator
+client.focused 			$base0D $base0D	$base00 $base01
+client.focused_inactive 	$base02 $base02 $base04 $base01
+client.unfocused 		$base01 $base01 $base04 $base01
+client.urgent 			$base02 $base08 $base07 $base08
 
 # Bar
   bar {
@@ -201,12 +206,12 @@ client.urgent $base02 $base08 $base07 $base08
     status_command i3blocks -c $DOTFILES/i3wm/i3bar/i3blocks
 	strip_workspace_numbers yes
     colors {
-        separator $base03
-        background $base06
+        separator $base04
+        background $base01
         statusline $base05
-        focused_workspace $base0C $base0D $base07
+        focused_workspace $base0C $base0D $base00
         active_workspace $base02 $base02 $base07
-        inactive_workspace $base06 $base06 $base03
+        inactive_workspace $base01 $base01 $base04
         urgent_workspace $base08 $base08 $base07
     }
   }
