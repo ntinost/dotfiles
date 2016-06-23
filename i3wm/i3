@@ -192,15 +192,14 @@ for_window [class="qemu-system-x86_64"] layout tabbed
 for_window [class="VirtualBox"] layout tabbed
 
 # Window Colors
-#				border  bg 	text    indicator
-client.focused 			$base0D $base0D	$base00 $base01
+#							border  bg		text    indicator
+client.focused				$base0D $base0D	$base00 $base01
 client.focused_inactive 	$base02 $base02 $base04 $base01
-client.unfocused 		$base01 $base01 $base04 $base01
-client.urgent 			$base02 $base08 $base07 $base08
+client.unfocused			$base01 $base01 $base04 $base01
+client.urgent				$base02 $base08 $base07 $base08
 
 # Bar
   bar {
-	position top
 	font pango: Iosevka Term Slab Medium, FontAwesome  9.5
 	output $monitor1
     status_command i3blocks -c $DOTFILES/i3wm/i3bar/i3blocks
@@ -209,10 +208,11 @@ client.urgent 			$base02 $base08 $base07 $base08
         separator $base04
         background $base01
         statusline $base05
-        focused_workspace $base0C $base0D $base00
-        active_workspace $base02 $base02 $base07
-        inactive_workspace $base01 $base01 $base04
-        urgent_workspace $base08 $base08 $base07
+#							border  bg		text
+        focused_workspace	$base0C $base0D $base00
+        active_workspace	$base02 $base02 $base07
+        inactive_workspace	$base01 $base01 $base04
+        urgent_workspace	$base08 $base08 $base07
     }
   }
 
