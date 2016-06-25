@@ -1,7 +1,10 @@
 # Global properties - these are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
-command=/usr/lib/i3block/$BLOCK_NAME
+align=center
+command=/usr/lib/i3blocks/$BLOCK_NAME
 color=#93a1a1
+separator_block_width=16
+markup=pango
 
 [mpd]
 command=$DOTFILES/i3wm/i3bar/mpd.sh
@@ -14,7 +17,6 @@ interval=120
 label=
 
 [bandwidth]
-command=/usr/lib/i3blocks/bandwidth
 interval=1
 label=
 

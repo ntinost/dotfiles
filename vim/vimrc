@@ -160,7 +160,7 @@
     if has('gui_running')
         colorscheme solarized
         set guioptions=
-        set guifont=Iosevka\ Term\ Slab\ Regular\ 10
+        set guifont=Iosevka\ Term\ Slab\ Medium\ 10
         "set guifont=Terminus\ 10
     else
         colorscheme default

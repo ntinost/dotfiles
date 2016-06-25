@@ -16,7 +16,7 @@ fi
 
 setxkbmap -model pc104 -layout pl,gr -option grp:alt_space_toggle,ctrl:nocaps
 xcape -e 'Control_L=Escape'
-urxvtd --quiet --opendisplay --fork
+#urxvtd --quiet --opendisplay --fork
 unclutter &
 mpd &
 dunst -config $DOTFILES/misc/dunst.conf	&

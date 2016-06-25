@@ -57,7 +57,7 @@ set $monitor2 "VGA1"
 set $wall "hsetroot -fill $DOTFILES/i3wm/wallhaven-93962.jpg"
 
 # General Configuration
-font pango: Iosevka Term Slab Medium 9.5
+font pango: Iosevka Medium 9.5
 floating_modifier $mod
 new_window pixel 5
 smart_borders on
@@ -104,7 +104,7 @@ mode "  " {
 
 # Program-Related Bindings
   	bindsym $mod+Return exec termite
-  	bindsym $mod+Shift+Return exec urxvtc
+  	bindsym $mod+Shift+Return exec urxvt
   	bindsym $mod+d exec rofi -show run -eh 2
 	bindcode Mod1+65 exec pkill -RTMIN+1 i3blocks
     bindsym $mod+p exec pavucontrol
@@ -200,7 +200,7 @@ client.urgent				$base02 $base08 $base07 $base08
 
 # Bar
   bar {
-	font pango: Iosevka Term Slab Medium, FontAwesome  9.5
+	font pango: Iosevka Medium, FontAwesome  9.5
 	output $monitor1
     status_command i3blocks -c $DOTFILES/i3wm/i3bar/i3blocks
 	strip_workspace_numbers yes
