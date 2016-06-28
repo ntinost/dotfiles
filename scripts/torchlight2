@@ -1,3 +1,0 @@
-#!/bin/dash
-cd ~/.games/torchlight2
-./start.sh

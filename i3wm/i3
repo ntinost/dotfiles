@@ -107,7 +107,7 @@ mode "  " {
   	bindsym $mod+Shift+Return exec urxvt
   	bindsym $mod+d exec rofi -show run -eh 2
 	bindcode Mod1+65 exec pkill -RTMIN+1 i3blocks
-    bindsym $mod+p exec pavucontrol
+	bindsym $mod+p exec pavucontrol
     bindsym Print exec scrot; exec notify-send "Screenshot taken"
 	bindsym $mod+Shift+m exec --no-startup-id pkill -USR1 redshift
 
@@ -121,11 +121,12 @@ mode "  " {
   	bindsym XF86AudioPrev exec mpc prev
 
 # Startup Programs
-	exec xset -dpms s off
+	exec --no-startup-id xset -dpms s off
 	exec --no-startup-id xrandr --output $monitor1 --auto --output $monitor2 --off
 	exec_always $wall
 	exec compton -f
 	exec termite -e ranger
+
 
 # Workspace-Related Bindings
 	bindsym $mod+1 workspace $workspace1
