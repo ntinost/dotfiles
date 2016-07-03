@@ -11,6 +11,11 @@ command=$DOTFILES/i3wm/i3bar/mpd.sh
 interval=5
 label=
 
+[counter]
+command=$DOTFILES/i3wm/i3bar/counter
+interval=120
+label=
+
 [email]
 command=$DOTFILES/i3wm/i3bar/unread_mails.sh
 interval=120
