@@ -127,7 +127,7 @@ exec --no-startup-id xset -dpms s off
 exec --no-startup-id xrandr --output $monitor1 --auto --output $monitor2 --off
 exec --no-startup-id unclutter
 exec --no-startup-id redshift -l 40.6:22.9 -t 6500:3500
-exec --no-startup-id dunst --config $DOTFILES/misc/dunst.conf
+exec --no-startup-id dunst
 exec_always $wall
 exec compton -f
 exec termite -e ranger
