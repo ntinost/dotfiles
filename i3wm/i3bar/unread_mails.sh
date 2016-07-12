@@ -1,4 +1,4 @@
-#!/bin/dash
+#!/bin/bash
 
 USER="ktoump1294"
 PASS=""
