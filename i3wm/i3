@@ -54,7 +54,6 @@ set $workspace9 "9:  "
 set $workspace10 "10:  "
 set $monitor1 "HDMI2"
 set $monitor2 "VGA1"
-set $wall "hsetroot -fill $DOTFILES/i3wm/wallhaven-93962.jpg"
 
 # General Configuration
 font pango: Iosevka Medium 9.5
@@ -124,11 +123,10 @@ bindsym XF86AudioPrev exec mpc prev
 exec --no-startup-id mpd
 exec --no-startup-id xcape -e 'Control_L=Escape'
 exec --no-startup-id xset -dpms s off
-exec --no-startup-id xrandr --output $monitor1 --auto --output $monitor2 --off
 exec --no-startup-id unclutter
 exec --no-startup-id redshift -l 40.6:22.9 -t 6500:3500
 exec --no-startup-id dunst
-exec_always $wall
+exec_always feh --bg-scale $DOTFILES/i3wm/wallhaven-93962.jpg
 exec compton -f
 exec termite -e ranger
 
@@ -165,12 +163,7 @@ workspace $workspace5 output $monitor2
 workspace $workspace6 output $monitor1
 workspace $workspace10 output $monitor1
 
-# Monitor modes
-bindsym $mod+KP_End exec  xrandr --output $monitor2 --auto --left-of $monitor1 --auto --primary && $wall
-bindsym $mod+KP_Down exec  xrandr --output $monitor1 --auto --output $monitor2 --off && $wall
-bindsym $mod+KP_Next exec  xrandr --output $monitor1 --off --output $monitor2 --auto && $wall
-
-# backlight
+# turn both monitors on demand
 bindsym $mod+KP_Right exec sleep 1 && xset dpms force off
 
 # Program Workspaces
