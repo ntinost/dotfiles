@@ -1,4 +1,4 @@
 #!/usr/bin/env python2
 from datetime import date as D
-print " ",(D.today() - D(2016, 7, 11)).days,"days"
+print " ",(D.today() - D(2016, 9, 04)).days,"days"
 

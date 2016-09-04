@@ -66,6 +66,10 @@
 	alias s1='systemctl poweroff'
 	alias s2='systemctl suspend'
 	alias s3='systemctl reboot'
+
+	# openvpn control
+	alias startv='startd openvpn@tux-full-udp'
+	alias stopv='stopd openvpn@tux-full-udp'
 # }
 
 # Qemu & other mounting data{

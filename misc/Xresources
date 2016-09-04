@@ -23,7 +23,7 @@
 rofi.padding: 125
 rofi.width: 30
 rofi.eh: 2
-rofi.font: Iosevka \15
+rofi.font: Iosevka\ 15
 !rofi.eh: 10
 rofi.lines: 5
 rofi.color-enabled:	true

@@ -195,7 +195,7 @@
     cnoremap w!! w !sudo tee % >/dev/null
 
     " Toggle background quickly
-    map <leader>b :let &background = ( &background == "dark"? "light" : "dark" )<CR>
+    nnoremap <leader>b :let &background = ( &background == "dark"? "light" : "dark" )<CR>
 
     " Open in browsers - works correctly on gui only, because of F12
     nnoremap <F12>q :exe ':silent !qutebrowser %'<CR>
@@ -604,6 +604,7 @@
         " YouCompleteMe {
             nnoremap <leader>jc :YcmCompleter GoToDeclaration<CR>
             nnoremap <leader>jf :YcmCompleter GoToDefinition<CR>
+            nnoremap <leader>m :let g:ycm_auto_trigger = ( g:ycm_auto_trigger == "0"? "1" : "0" )<CR>
             let g:ycm_confirm_extra_conf = 0
         " }
     endif

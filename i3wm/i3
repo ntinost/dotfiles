@@ -61,7 +61,7 @@ floating_modifier $mod
 new_window pixel 5
 smart_borders on
 workspace_auto_back_and_forth yes
-gaps inner 5
+#gaps inner 5
 
 # Window-Related Bindings
 bindsym $mod+Shift+q kill
@@ -127,6 +127,7 @@ exec --no-startup-id unclutter
 exec --no-startup-id redshift -l 40.6:22.9 -t 6500:3500
 exec --no-startup-id dunst
 exec_always feh --bg-scale $DOTFILES/i3wm/wallhaven-93962.jpg
+exec xrandr --output HDMI2 --auto --output VGA1 --auto --left-of HDMI2
 exec compton -f
 exec termite -e ranger
 
