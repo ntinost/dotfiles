@@ -56,7 +56,7 @@ set $workspace10 "10:  "
 #set $monitor2 "VGA1"
 
 # General Configuration
-font pango: Iosevka Medium 9.5
+font pango: Iosevka Medium 9
 floating_modifier $mod
 new_window pixel 5
 smart_borders on
@@ -156,13 +156,13 @@ bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # Workspace Monitors
-workspace $workspace1 output $monitor1
-workspace $workspace2 output $monitor1
-workspace $workspace3 output $monitor1
-workspace $workspace4 output $monitor1
-workspace $workspace5 output $monitor2
-workspace $workspace6 output $monitor1
-workspace $workspace10 output $monitor1
+#workspace $workspace1 output $monitor1
+#workspace $workspace2 output $monitor1
+#workspace $workspace3 output $monitor1
+#workspace $workspace4 output $monitor1
+#workspace $workspace5 output $monitor2
+#workspace $workspace6 output $monitor1
+#workspace $workspace10 output $monitor1
 
 # turn both monitors on demand
 bindsym $mod+KP_Right exec sleep 1 && xset dpms force off
@@ -200,7 +200,7 @@ client.urgent				$base02 $base08 $base07 $base08
 
 # Bar
 bar {
-	font pango: Iosevka Medium, FontAwesome  9.5
+	font pango: Iosevka Medium, FontAwesome 9
 	#output $monitor1
     status_command i3blocks -c $DOTFILES/i3wm/i3bar/i3blocks
 	strip_workspace_numbers yes
