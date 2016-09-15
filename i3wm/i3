@@ -52,8 +52,8 @@ set $workspace7 "7:  "
 set $workspace8 "8:  "
 set $workspace9 "9:  "
 set $workspace10 "10:  "
-set $monitor1 "HDMI2"
-set $monitor2 "VGA1"
+#set $monitor1 "HDMI2"
+#set $monitor2 "VGA1"
 
 # General Configuration
 font pango: Iosevka Medium 9.5
@@ -127,7 +127,7 @@ exec --no-startup-id unclutter
 exec --no-startup-id redshift -l 40.6:22.9 -t 6500:3500
 exec --no-startup-id dunst
 exec_always feh --bg-scale $DOTFILES/i3wm/wallhaven-93962.jpg
-exec xrandr --output HDMI2 --auto --output VGA1 --auto --left-of HDMI2
+#exec xrandr --output HDMI2 --auto --output VGA1 --auto --left-of HDMI2
 exec compton -f
 exec termite -e ranger
 
@@ -201,7 +201,7 @@ client.urgent				$base02 $base08 $base07 $base08
 # Bar
 bar {
 	font pango: Iosevka Medium, FontAwesome  9.5
-	output $monitor1
+	#output $monitor1
     status_command i3blocks -c $DOTFILES/i3wm/i3bar/i3blocks
 	strip_workspace_numbers yes
     colors {
