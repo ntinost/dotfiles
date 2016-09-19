@@ -98,8 +98,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Program-Related Bindings
-bindsym $mod+Return exec termite
-bindsym $mod+Shift+Return exec urxvt
+bindsym $mod+Return exec urxvtc
+bindsym $mod+Shift+Return exec termite
 bindsym $mod+d exec rofi -show run -eh 2
 bindcode Mod1+65 exec pkill -RTMIN+1 i3blocks
 bindsym $mod+p exec pavucontrol
@@ -127,6 +127,8 @@ exec --no-startup-id xset -dpms s off
 exec --no-startup-id unclutter
 exec --no-startup-id redshift -l 40.6:22.9 -t 6500:3500
 exec --no-startup-id dunst
+exec --no-startup-id monitor_toggle.sh
+exec --no-startup-id urxvtd -q -f -o
 exec_always feh --bg-scale $DOTFILES/i3wm/wallhaven-7427.png
 exec compton -f
 exec termite -e ranger
