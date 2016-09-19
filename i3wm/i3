@@ -126,10 +126,11 @@ exec --no-startup-id xset -dpms s off
 exec --no-startup-id unclutter
 exec --no-startup-id redshift -l 40.6:22.9 -t 6500:3500
 exec --no-startup-id dunst
-exec_always feh --bg-scale $DOTFILES/i3wm/wallhaven-93962.jpg
+exec_always feh --bg-scale $DOTFILES/i3wm/wallhaven-7427.png
 #exec xrandr --output HDMI2 --auto --output VGA1 --auto --left-of HDMI2
 exec compton -f
 exec termite -e ranger
+exec firefox
 
 
 # Workspace-Related Bindings
@@ -165,10 +166,11 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 #workspace $workspace10 output $monitor1
 
 # turn both monitors on demand
-bindsym $mod+KP_Right exec sleep 1 && xset dpms force off
+bindsym $mod+Right exec sleep 1 && xset dpms force off
 
 # Program Workspaces
 assign [class="qutebrowser"] $workspace2
+assign [class="(?i)firefox"] $workspace2
 assign [class="VirtualBox"] $workspace4
 assign [title="Messenger"] $workspace5
 assign [class="Skype"] $workspace5

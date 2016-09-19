@@ -20,7 +20,7 @@
 
 ! Rofi config
 !rofi.fullscreen: true
-rofi.padding: 125
+rofi.padding: 60
 rofi.width: 30
 rofi.eh: 2
 rofi.font: Iosevka\ 15
