@@ -236,7 +236,7 @@ set $mode_system_terminate  (S)hutdown     (R)eboot     (X) logout
 bindsym Pause mode "$mode_system"
 mode "$mode_system" {
     bindsym t mode "$mode_system_terminate"
-    bindsym s exec i3lock-fancy && systemctl suspend, mode "default"
+    bindsym s exec systemctl suspend && i3lock-fancy, mode "default"
     bindsym Return mode "default"
     bindsym Control+bracketleft mode "default"
     bindsym Escape mode "default"
