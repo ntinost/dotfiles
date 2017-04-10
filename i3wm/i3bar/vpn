@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VPNC_FILE='/var/run/openvpn@tux-full-udp.pid'
+VPNC_FILE='/var/run/client/openvpn-client@tux-full-udp.pid'
 
 if [[ -e "${VPNC_FILE}" ]]; then
   echo ""

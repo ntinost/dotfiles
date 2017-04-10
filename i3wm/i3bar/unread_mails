@@ -1,7 +1,7 @@
 #!/bin/bash
 
-USER="ktoump1294"
-PASS=""
+USER="username"
+PASS="password"
 
 COUNT=`curl -su $USER:$PASS https://mail.google.com/mail/feed/atom || echo "<fullcount>unknown number
 of</fullcount>"`

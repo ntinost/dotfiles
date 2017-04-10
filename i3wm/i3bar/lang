@@ -7,8 +7,8 @@ echo "$KEYLANG" # short text
 
 
 if [[ "$KEYLANG" = *GR* ]]; then
-	echo \#268BD2
+	echo \#83A598
 else
-	echo \#DC322F
+	echo \#FB4934
 fi
 

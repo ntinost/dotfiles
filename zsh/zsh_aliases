@@ -18,10 +18,9 @@
 # Personal {
 	alias d='cd /media/data/'
 	alias dot='cd $DOTFILES'
-	alias teithevpn='cd $DOTFILES/vpn/teithe/ && sudo openvpn tux-full-udp.ovpn'
 	alias aetos='ssh ktoumpid@aetos.it.teithe.gr'
-	#alias alarm='ssh alarm@alarmpi'
-	alias atronach='ssh ksardas@atronach -p 39901'
+	alias alarm='ssh alarm@alarmpi'
+	alias mysql='mysql -u root -D dbtech'
 
 	# Easy clone git repos.
 	clone() { git clone https://github.com/$1/$2 }
@@ -68,16 +67,18 @@
 	alias s3='systemctl reboot'
 
 	# openvpn control
-	alias startv='startd openvpn@tux-full-udp'
-	alias stopv='stopd openvpn@tux-full-udp'
+	alias startv='startd openvpn-client@tux-full-udp'
+	alias stopv='stopd openvpn-client@tux-full-udp'
+	alias teithevpn='cd $DOTFILES/vpn/teithe/ && sudo openvpn tux-full-udp.ovpn'
 # }
 
 # Qemu & other mounting data{
 	alias qemu-windose='qemu-system-x86_64 -enable-kvm -m 4096 -vga std -daemonize -drive file=/data/disk0/ksardas/VM/qemu/windows7.img,format=qcow2,if=virtio -net nic,model=virtio'
 	alias aetos_mount='sshfs ktoumpid@aetos.it.teithe.gr:/home/student/x1314/ktoumpid /mnt/aetos'
 	alias aetos_umount='fusermount -u /mnt/aetos'
-	alias atronach_mount='sshfs ksardas@atronach:$HOME -p 39901 /mnt/atronach'
-	alias atronach_umount='fusermount -u /mnt/atronach'
-	alias speedometer='speedometer -t enp3s0 -r enp3s0'
+	alias alarm_mount='sshfs alarm@alarmpi:/home/alarm /mnt/alarm'
+	alias alarm_umount='fusermount -u /mnt/alarm'
+	alias speedometer_ethernet='speedometer -t enp0s25 -r enp0s25'
+	alias speedometer_wifi='speedometer -t wlp3s0 -r wlp3s0'
 	alias mountiso="udisksctl loop-setup -r -f"
 # }

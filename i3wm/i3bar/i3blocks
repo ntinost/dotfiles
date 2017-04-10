@@ -2,7 +2,7 @@
 # Each block command defaults to the script name to avoid boilerplate.
 align=center
 command=$DOTFILES/i3wm/i3bar/$BLOCK_NAME
-color=#93a1a1
+color=#EBDBB2
 separator_block_width=10
 markup=pango
 
@@ -10,28 +10,26 @@ markup=pango
 interval=5
 label=
 
-[counter]
-interval=120
-label=
-
 [unread_mails]
 interval=120
 label=
 
-[wifi]
-interval=2
-label=
+#[wifi]
+#interval=10
+#label=
 
 [bandwidth]
 command=/usr/lib/i3blocks/bandwidth
 interval=1
 label=
 
-[vpn]
-interval=10
-label=VPN
+# XXX fix until further notice
+#[vpn]
+#interval=10
+#label=VPN
 
 [load_average]
+command=/usr/lib/i3blocks/load_average
 interval=60
 label=
 
@@ -46,6 +44,7 @@ label=
 interval=5
 
 [disk]
+command=/usr/lib/i3blocks/disk
 interval=3600
 label=
 

@@ -24,40 +24,61 @@
 
 # Constants
 set $mod Mod4
-set $base00 #002B36
-set $base01 #073642
-set $base02 #586E75
-set $base03 #657B83
-set $base04 #839496
-set $base05 #93A1A1
-set $base06 #EEE8D5
-set $base07 #FDF6E3
-set $base08 #DC322F
-set $base09 #CB4B16
-set $base0A #B58900
-set $base0B #859900
-set $base0C #2AA198
-set $base0D #268BD2
-set $base0E #6C71C4
-set $base0F #D33682
-set $workspace1 "1:  "
-set $workspace2 "2:  "
-set $workspace3 "3:  "
-set $workspace4 "4:  "
-set $workspace5 "5:  "
-set $workspace6 "6:  "
-set $workspace7 "7:  "
-set $workspace8 "8:  "
-set $workspace9 "9:  "
-set $workspace10 "10:  "
+set $bgd1 #282828
+set $bgd0 #3C3836
+set $fgd1 #A89984
+set $fgd0 #BDAE93
+set $fgl0 #D5C4A1
+set $fgl1 #EBDBB2
+set $bgl0 #EBDBB2
+set $bgl1 #FBF1C7
+set $red #FB4934
+set $orange #FE8019
+set $yellow #FABD2F
+set $green #B8BB26
+set $cyan #8EC07C
+set $blue #83A598
+set $pink #D3869B
+#set $workspace1 "1:  "
+#set $workspace2 "2:  "
+#set $workspace3 "3:  "
+#set $workspace4 "4:  "
+#set $workspace5 "5:  "
+#set $workspace6 "6:  "
+#set $workspace7 "7:  "
+#set $workspace8 "8:  "
+#set $workspace9 "9:  "
+#set $workspace10 "10:  "
+set $workspace1 "1: 1 "
+set $workspace2 "2: 2 "
+set $workspace3 "3: 3 "
+set $workspace4 "4: 4 "
+set $workspace5 "5: 5 "
+set $workspace6 "6: 6 "
+set $workspace7 "7: 7 "
+set $workspace8 "8: 8 "
+set $workspace9 "9: 9 "
+set $workspace10 "10: 10 "
 
 # General Configuration
-font pango: Iosevka Medium 9
+font pango: Roboto 9
 floating_modifier $mod
 new_window pixel 5
 smart_borders on
 workspace_auto_back_and_forth yes
-#gaps inner 5
+#gaps inner 10
+
+workspace $workspace1 output HDMI-2
+workspace $workspace2 output HDMI-2
+workspace $workspace3 output HDMI-2
+workspace $workspace4 output HDMI-2
+workspace $workspace5 output HDMI-2
+workspace $workspace6 output VGA-1
+workspace $workspace7 output VGA-1
+workspace $workspace8 output VGA-1
+workspace $workspace9 output VGA-1
+workspace $workspace10 output VGA-1
+
 
 # Window-Related Bindings
 bindsym $mod+Shift+q kill
@@ -98,13 +119,14 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Program-Related Bindings
-bindsym $mod+Return exec urxvtc
-bindsym $mod+Shift+Return exec termite
+bindsym $mod+Return exec termite
 bindsym $mod+d exec rofi -show run -eh 2
 bindcode Mod1+65 exec pkill -RTMIN+1 i3blocks
 bindsym $mod+p exec pavucontrol
 bindsym Print exec scrot; exec notify-send "Screenshot taken"
 bindsym $mod+Shift+m exec --no-startup-id pkill -USR1 redshift
+bindsym $mod+z exec dolphin
+bindsym $mod+Shift+z exec termite -e ranger
 
 # Volume & Media Bindings
 bindsym XF86AudioMute exec ponymix toggle && pkill -RTMIN+1 i3blocks
@@ -116,23 +138,24 @@ bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPrev exec mpc prev
 
 # Other
-bindsym XF86ScreenSaver exec i3lock-fancy
-bindsym XF86TouchpadToggle exec touchpad_toggle.sh
-bindsym XF86Display exec monitor_toggle.sh
+#bindsym XF86ScreenSaver exec i3lock-fancy
+#bindsym XF86TouchpadToggle exec touchpad_toggle.sh
+bindsym $mod+a exec xrandr --output VGA-1 --auto --output HDMI-2 --auto --right-of VGA-1
+bindsym $mod+Shift+a exec xrandr --output VGA-1 --off --output HDMI-2 --auto
 
 # Startup Programs
 exec --no-startup-id mpd
+exec --no-startup-id transmission-daemon
 exec --no-startup-id xcape -e 'Control_L=Escape'
 exec --no-startup-id xset -dpms s off
 exec --no-startup-id unclutter
 exec --no-startup-id redshift -l 40.6:22.9 -t 6500:3500
 exec --no-startup-id dunst
-exec --no-startup-id monitor_toggle.sh
-exec --no-startup-id urxvtd -q -f -o
-exec_always feh --bg-scale $DOTFILES/i3wm/wallhaven-7427.png
+exec hsetroot -solid "#282828"
+exec_always --no-startup-id monitor_toggle.sh
+#exec --no-startup-id urxvtd -q -f -o
+exec nm-applet
 exec compton -f
-exec termite -e ranger
-exec firefox
 
 
 # Workspace-Related Bindings
@@ -181,32 +204,29 @@ for_window [class="Godot"] floating enable
 for_window [class="Hamster"] floating enable
 for_window [class="Skype"] floating enable
 for_window [class="(?i)gpick"] floating enable
-
-# Tabbed
-for_window [class="qemu-system-x86_64"] layout tabbed
-for_window [class="VirtualBox"] layout tabbed
+for_window [class="VirtualBox"] floating enable
 
 # Window Colors
 #							border  bg		text    indicator
-client.focused				$base0D $base0D	$base00 $base01
-client.focused_inactive 	$base02 $base02 $base04 $base01
-client.unfocused			$base01 $base01 $base04 $base01
-client.urgent				$base02 $base08 $base07 $base08
+client.focused				$yellow $yellow $bgd1 $bgd0
+client.focused_inactive 	$fgd1 $fgd1 $fgl0 $bgd0
+client.unfocused			$bgd0 $bgd0 $fgl0 $bgd0
+client.urgent				$fgd1 $red $bgl1 $red
 
 # Bar
 bar {
-	font pango: Iosevka Medium, FontAwesome 9
+	font pango: Iosevka, FontAwesome 9
     status_command i3blocks -c $DOTFILES/i3wm/i3bar/i3blocks
 	strip_workspace_numbers yes
     colors {
-        separator $base04
-        background $base01
-        statusline $base05
+        separator $fgl0
+        background $bgd0
+        statusline $fgl1
 #							border  bg		text
-        focused_workspace	$base0C $base0D $base00
-        active_workspace	$base02 $base02 $base07
-        inactive_workspace	$base01 $base01 $base04
-        urgent_workspace	$base08 $base08 $base07
+        focused_workspace	$cyan $blue $bgd1
+        active_workspace	$fgd1 $fgd1 $bgl1
+        inactive_workspace	$bgd0 $bgd0 $fgl0
+        urgent_workspace	$red $red $bgl1
 	}
 }
 
@@ -233,10 +253,10 @@ mode "$mpd_control" {
 # Specialized code #2: System halter
 set $mode_system  (T)erminate session     (S)uspend
 set $mode_system_terminate  (S)hutdown     (R)eboot     (X) logout
-bindsym Pause mode "$mode_system"
+bindsym $mod+Pause mode "$mode_system"
 mode "$mode_system" {
     bindsym t mode "$mode_system_terminate"
-    bindsym s exec systemctl suspend && i3lock-fancy, mode "default"
+    bindsym s exec systemctl suspend, mode "default"
     bindsym Return mode "default"
     bindsym Control+bracketleft mode "default"
     bindsym Escape mode "default"

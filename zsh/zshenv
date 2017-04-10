@@ -21,8 +21,9 @@ fi
 
 export WINEARCH=win32
 export WINEDEBUG="-all"
-export WINEPREFIX=/data/ksardas/wine
+export WINEPREFIX=/home/ksardas/.wine
 export SDL_AUDIODRIVER="pulse"
 export WINEDLLOVERRIDES="winemenubuilder.exe,mscoree,mshtml=d"
 export VDPAU_DRIVER=va_gl
 export STEAM_RUNTIME=0
+export ANDROID_HOME=/opt/android-sdk

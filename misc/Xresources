@@ -1,129 +1,147 @@
 ! Base16 Solarized
 ! Scheme: Ethan Schoonover (http://ethanschoonover.com/solarized)
 
-#define base00 #002B36
-#define base01 #073642
-#define base02 #586E75
-#define base03 #657B83
-#define base04 #839496
-#define base05 #93A1A1
-#define base06 #EEE8D5
-#define base07 #FDF6E3
-#define base08 #DC322F
-#define base09 #CB4B16
-#define base0A #B58900
-#define base0B #859900
-#define base0C #2AA198
-#define base0D #268BD2
-#define base0E #6C71C4
-#define base0F #D33682
+! Enable the extended coloring options
+rofi.color-enabled: true
+
+!                  bg       border   separator
+rofi.color-window: #1d2021, #a89984, #a89984
+
+!                  bg       fg       bg-alt   hl-bg    hl-fg
+rofi.color-normal: #1d2021, #ebdbb2, #282828, #504945, #fbf1c7
+rofi.color-active: #d79921, #1d2021, #d79921, #fabd2f, #1d2021
+rofi.color-urgent: #cc241d, #1d2021, #cc241d, #fb4934, #1d2021
 
 ! Rofi config
 !rofi.fullscreen: true
 rofi.padding: 60
 rofi.width: 30
-rofi.eh: 2
-rofi.font: Iosevka\ 15
-!rofi.eh: 10
-rofi.lines: 5
-rofi.color-enabled:	true
-rofi.color-normal: base00, base04, base01, base0D, base00
-rofi.color-active: base00, base0D, base01, base0D, base0D
-rofi.color-urgent: base00, base0F, base01, base0D, base08
-rofi.color-window: base00, base00, base00
+!rofi.eh: 2
+rofi.font: Iosevka\ 10
+rofi.lines: 6
 
+! hard contrast: *background: #1d2021
+*background: #282828
+! soft contrast: *background: #32302f
+*foreground: #ebdbb2
+! Black + DarkGrey
+*color0:  #282828
+*color8:  #928374
+! DarkRed + Red
+*color1:  #cc241d
+*color9:  #fb4934
+! DarkGreen + Green
+*color2:  #98971a
+*color10: #b8bb26
+! DarkYellow + Yellow
+*color3:  #d79921
+*color11: #fabd2f
+! DarkBlue + Blue
+*color4:  #458588
+*color12: #83a598
+! DarkMagenta + Magenta
+*color5:  #b16286
+*color13: #d3869b
+! DarkCyan + Cyan
+*color6:  #689d6a
+*color14: #8ec07c
+! LightGrey + White
+*color7:  #a89984
+*color15: #ebdbb2
 
-*background:   base00
-*foreground:   base05
-*cursorColor:  base05
-
-*color0:       base00
-*color1:       base08
-*color2:       base0B
-*color3:       base0A
-*color4:       base0D
-*color5:       base0E
-*color6:       base0C
-*color7:       base05
-
-*color8:       base03
-*color9:       base08
-*color10:      base0B
-*color11:      base0A
-*color12:      base0D
-*color13:      base0E
-*color14:      base0C
-*color15:      base07
-
-*color16:      base09
-*color17:      base0F
-*color18:      base01
-*color19:      base02
-*color20:      base04
-*color21:      base06
-
-! Urxvt config
-URxvt*depth: 32
-URxvt*scrollColor:                    base05
-URxvt*highlightColor:                 base02
-URxvt*highlightTextColor:             base04
-! How many lines should scroll save
-URxvt.saveLines: 2000
-! Make urgent on System Bell
-URxvt.urgentOnBell: True
-! Font
-URxvt*font:		xft:Terminus:size=8
-!URxvt*font:		xft:Iosevka\ Term:size=8
-!URxvt*boldFont:	xft:Iosevka\ Term:size=8
-!URxvt.letterSpace: -1
-!-*-{ Xft settings
-Xft*dpi:       96
-Xft*antialias: True
-Xft*hinting:   Full
-!-*-}
-! To disable the scrollbar
-URxvt.scrollBar: false
-! The string will be interpreted as if typed into the shell as-is.
-! In this example, printing will be disabled altogether.
-URxvt.print-pipe: "cat > /dev/null"
-!-*- Perl extensions -*-
-URxvt.perl-ext-common:default,clipboard,matcher,keyboard-select
-URxvt.keysym.M-u:     perl:url-select:select_next
-URxvt.url-launcher:   /usr/bin/qutebrowser
-URxvt.underlineURLs:  True
-URxvt.matcher.button: 1
-URxvt.keysym.M-Escape:perl:keyboard-select:activate
-URxvt.keysym.M-c:     perl:clipboard:copy
-URxvt.keysym.M-v:     perl:clipboard:paste
-URxvt.keysym.M-C-v:   perl:clipboard:paste_escaped
-!URxvt.copyCommand:   xsel -ib
-!URxvt.pasteCommand:  xsel -ob
-! Comment this if you dont want copy when text is selected
-URxvt.clipboard.autocopy: true
-
-! XTerm config
-! General settings
-XTerm*termName: xterm-256color
-XTerm*geometry: 80x24
-XTerm*saveLines: 1024
-XTerm*scrollBar: False
-XTerm*loginshell: False
-XTerm*cursorBlink: False
-! Fonts and Encoding
-XTerm*utf8: True
-XTerm*locale: True
-XTerm*utf8Title: True
-XTerm*renderFont: True
-XTerm*preeditType: Root
-XTerm*xftAntialias: true
-XTerm*faceName: xft:Terminus-10
-! Trim trailing spaces
-XTerm*trimSelection: true
-! Fix alt-key inputting XTerm*eightBitInput: false
-XTerm*metaSendsEscape: true
-! Copy and paste with clipboard
-XTerm*translations: #override \
-Ctrl Shift <KeyPress> C: copy-selection(CLIPBOARD) \n\
-Ctrl Shift <KeyPress> V: insert-selection(CLIPBOARD)
-! Allow selecting email/url by double-click
-XTerm*charClass: 33:48,37-38:48,45-47:48,64:48,58:48,126:48,61:48,63:48,43:48,35:48
+!URxvt.color24:  #076678
+!URxvt.color66:  #427b58
+!URxvt.color88:  #9d0006
+!URxvt.color96:  #8f3f71
+!URxvt.color100: #79740e
+!URxvt.color108: #8ec07c
+!URxvt.color109: #83a598
+!URxvt.color130: #af3a03
+!URxvt.color136: #b57614
+!URxvt.color142: #b8bb26
+!URxvt.color167: #fb4934
+!URxvt.color175: #d3869b
+!URxvt.color208: #fe8019
+!URxvt.color214: #fabd2f
+!URxvt.color223: #ebdbb2
+!URxvt.color228: #f2e5bc
+!URxvt.color229: #fbf1c7
+!URxvt.color230: #f9f5d7
+!URxvt.color234: #1d2021
+!URxvt.color235: #282828
+!URxvt.color236: #32302f
+!URxvt.color237: #3c3836
+!URxvt.color239: #504945
+!URxvt.color241: #665c54
+!URxvt.color243: #7c6f64
+!URxvt.color244: #928374
+!URxvt.color245: #928374
+!URxvt.color246: #a89984
+!URxvt.color248: #bdae93
+!URxvt.color250: #d5c4a1
+!
+!! Urxvt config
+!URxvt*depth: 32
+!URxvt*scrollColor:                    base05
+!URxvt*highlightColor:                 base02
+!URxvt*highlightTextColor:             base04
+!! How many lines should scroll save
+!URxvt.saveLines: 2000
+!! Make urgent on System Bell
+!URxvt.urgentOnBell: True
+!! Font
+!!URxvt*font:		xft:Terminus:size=8
+!URxvt*font:		xft:Iosevka:size=8
+!!URxvt*boldFont:	xft:Iosevka\ Term:size=8
+!!URxvt.letterSpace: -1
+!!-*-{ Xft settings
+!Xft*dpi:       96
+!Xft*antialias: True
+!Xft*hinting:   Full
+!!-*-}
+!! To disable the scrollbar
+!URxvt.scrollBar: false
+!! The string will be interpreted as if typed into the shell as-is.
+!! In this example, printing will be disabled altogether.
+!URxvt.print-pipe: "cat > /dev/null"
+!!-*- Perl extensions -*-
+!URxvt.perl-ext-common:default,clipboard,matcher,keyboard-select
+!URxvt.keysym.M-u:     perl:url-select:select_next
+!URxvt.url-launcher:   /usr/bin/qutebrowser
+!URxvt.underlineURLs:  True
+!URxvt.matcher.button: 1
+!URxvt.keysym.M-Escape:perl:keyboard-select:activate
+!URxvt.keysym.M-c:     perl:clipboard:copy
+!URxvt.keysym.M-v:     perl:clipboard:paste
+!URxvt.keysym.M-C-v:   perl:clipboard:paste_escaped
+!!URxvt.copyCommand:   xsel -ib
+!!URxvt.pasteCommand:  xsel -ob
+!! Comment this if you dont want copy when text is selected
+!URxvt.clipboard.autocopy: true
+!
+!! XTerm config
+!! General settings
+!XTerm*termName: xterm-256color
+!XTerm*geometry: 80x24
+!XTerm*saveLines: 1024
+!XTerm*scrollBar: False
+!XTerm*loginshell: False
+!XTerm*cursorBlink: False
+!! Fonts and Encoding
+!XTerm*utf8: True
+!XTerm*locale: True
+!XTerm*utf8Title: True
+!XTerm*renderFont: True
+!XTerm*preeditType: Root
+!XTerm*xftAntialias: true
+!XTerm*faceName: xft:Terminus-10
+!! Trim trailing spaces
+!XTerm*trimSelection: true
+!! Fix alt-key inputting XTerm*eightBitInput: false
+!XTerm*metaSendsEscape: true
+!! Copy and paste with clipboard
+!XTerm*translations: #override \
+!Ctrl Shift <KeyPress> C: copy-selection(CLIPBOARD) \n\
+!Ctrl Shift <KeyPress> V: insert-selection(CLIPBOARD)
+!! Allow selecting email/url by double-click
+!XTerm*charClass: 33:48,37-38:48,45-47:48,64:48,58:48,126:48,61:48,63:48,43:48,35:48
