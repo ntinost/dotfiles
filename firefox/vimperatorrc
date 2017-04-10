@@ -1,4 +1,4 @@
-colorscheme solarized
+colorscheme twily
 
 noremap l gt
 noremap h gT
@@ -20,3 +20,6 @@ function toggle_bottombar() {
     bb.style.overflow = (bb.style.height == '') ? '' : 'hidden';
     }
 EOF
+
+js services.services.autoCompleteSearch.class_="@mozilla.org/autocomplete/search;1?name=unifiedcomplete"
+
