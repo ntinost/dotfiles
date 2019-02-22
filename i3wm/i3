@@ -14,7 +14,7 @@
 #	-> Program-to-Workspaces Assignments
 #		* Floating/Tabbed
 #	-> Colors (see constants for specific vals)
-#	-> "Specialized" code: Complex optional additions that don't fit above.
+#	-> Functions
 #		#1: MPD control.
 #		#2: System halter
 #		#3: Gaps resize
@@ -39,29 +39,19 @@ set $green #B8BB26
 set $cyan #8EC07C
 set $blue #83A598
 set $pink #D3869B
-#set $workspace1 "1:  "
-#set $workspace2 "2:  "
-#set $workspace3 "3:  "
-#set $workspace4 "4:  "
-#set $workspace5 "5:  "
-#set $workspace6 "6:  "
-#set $workspace7 "7:  "
-#set $workspace8 "8:  "
-#set $workspace9 "9:  "
-#set $workspace10 "10:  "
-set $workspace1 "1: 1 "
-set $workspace2 "2: 2 "
-set $workspace3 "3: 3 "
-set $workspace4 "4: 4 "
-set $workspace5 "5: 5 "
-set $workspace6 "6: 6 "
-set $workspace7 "7: 7 "
-set $workspace8 "8: 8 "
-set $workspace9 "9: 9 "
-set $workspace10 "10: 10 "
+set $workspace1 "1:  "
+set $workspace2 "2:  "
+set $workspace3 "3:  "
+set $workspace4 "4:  "
+set $workspace5 "5:  "
+set $workspace6 "6:  "
+set $workspace7 "7:  "
+set $workspace8 "8:  "
+set $workspace9 "9:  "
+set $workspace10 "10:  "
 
 # General Configuration
-font pango: Roboto 9
+font pango: Source Sans Pro 9
 floating_modifier $mod
 new_window pixel 5
 smart_borders on
@@ -125,8 +115,9 @@ bindcode Mod1+65 exec pkill -RTMIN+1 i3blocks
 bindsym $mod+p exec pavucontrol
 bindsym Print exec scrot; exec notify-send "Screenshot taken"
 bindsym $mod+Shift+m exec --no-startup-id pkill -USR1 redshift
-bindsym $mod+z exec dolphin
-bindsym $mod+Shift+z exec termite -e ranger
+bindsym $mod+z exec termite -e ranger
+bindsym $mod+Shift+z exec dolphin
+bindsym $mod+c exec chromium
 
 # Volume & Media Bindings
 bindsym XF86AudioMute exec ponymix toggle && pkill -RTMIN+1 i3blocks
@@ -139,9 +130,7 @@ bindsym XF86AudioPrev exec mpc prev
 
 # Other
 #bindsym XF86ScreenSaver exec i3lock-fancy
-#bindsym XF86TouchpadToggle exec touchpad_toggle.sh
-bindsym $mod+a exec xrandr --output VGA-1 --auto --output HDMI-2 --auto --right-of VGA-1
-bindsym $mod+Shift+a exec xrandr --output VGA-1 --off --output HDMI-2 --auto
+#bindsym XF86TouchpadToggle exec ~/.dotfiles/scripts/touchpad_toggle.sh
 
 # Startup Programs
 exec --no-startup-id mpd
@@ -151,11 +140,14 @@ exec --no-startup-id xset -dpms s off
 exec --no-startup-id unclutter
 exec --no-startup-id redshift -l 40.6:22.9 -t 6500:3500
 exec --no-startup-id dunst
-exec hsetroot -solid "#282828"
-exec_always --no-startup-id monitor_toggle.sh
+exec_always hsetroot -solid "#3C3836"
 #exec --no-startup-id urxvtd -q -f -o
-exec nm-applet
+#exec hsetroot -fill ~/.dotfiles/misc/wallhaven-642271.jpg
+#exec nm-applet
 exec compton -f
+exec --no-startup-id xrdb ~/.Xresources
+exec_always --no-startup-id ~/.screenlayout/doublescreen.sh
+#exec_always ~/.dotfiles/scripts/monitor-toggle.sh
 
 
 # Workspace-Related Bindings
@@ -189,6 +181,7 @@ assign [class="qutebrowser"] $workspace2
 assign [class="(?i)firefox"] $workspace2
 assign [class="VirtualBox"] $workspace4
 assign [title="Messenger"] $workspace5
+assign [title="Viber"] $workspace5
 assign [class="Skype"] $workspace5
 
 # Floating
@@ -204,7 +197,7 @@ for_window [class="Godot"] floating enable
 for_window [class="Hamster"] floating enable
 for_window [class="Skype"] floating enable
 for_window [class="(?i)gpick"] floating enable
-for_window [class="VirtualBox"] floating enable
+#for_window [class="VirtualBox"] floating enable
 
 # Window Colors
 #							border  bg		text    indicator
@@ -215,8 +208,9 @@ client.urgent				$fgd1 $red $bgl1 $red
 
 # Bar
 bar {
-	font pango: Iosevka, FontAwesome 9
-    status_command i3blocks -c $DOTFILES/i3wm/i3bar/i3blocks
+	#position top
+	font pango: SourceSansPro, FontAwesome 10
+    status_command i3blocks -c ~/.dotfiles/i3wm/i3bar/i3blocks
 	strip_workspace_numbers yes
     colors {
         separator $fgl0
@@ -230,27 +224,27 @@ bar {
 	}
 }
 
-# Specialized code #1: MPD control
-set $mpd_control MPD:   (S),   (P),   (H),   (L),   (R),   (-),   (=)
-bindsym $mod+m mode "$mpd_control"
-mode "$mpd_control" {
-    bindsym s exec mpc stop
-    bindsym p exec mpc toggle
-    bindsym l exec mpc next
-    bindsym h exec mpc prev
-    bindsym r exec mpc single
-    bindsym equal exec mpc volume +3
-    bindsym minus exec mpc volume -3
-    bindsym XF86AudioMute exec ponymix toggle && pkill -RTMIN+1 i3blocks
-    bindsym XF86AudioLowerVolume exec mpc volume -3
-    bindsym XF86AudioRaiseVolume exec mpc volume +3
+# Function: MPD control
+#set $mpd_control MPD:   (S),   (P),   (H),   (L),   (R),   (-),   (=)
+#bindsym $mod+m mode "$mpd_control"
+#mode "$mpd_control" {
+#    bindsym s exec mpc stop
+#    bindsym p exec mpc toggle
+#    bindsym l exec mpc next
+#    bindsym h exec mpc prev
+#    bindsym r exec mpc single
+#    bindsym equal exec mpc volume +3
+#    bindsym minus exec mpc volume -3
+#    bindsym XF86AudioMute exec ponymix toggle && pkill -RTMIN+1 i3blocks
+#    bindsym XF86AudioLowerVolume exec mpc volume -3
+#    bindsym XF86AudioRaiseVolume exec mpc volume +3
+#
+#    bindsym Control+bracketleft mode "default"
+#    bindsym Escape mode "default"
+#	bindsym Return mode "default"
+#}
 
-    bindsym Control+bracketleft mode "default"
-    bindsym Escape mode "default"
-	bindsym Return mode "default"
-}
-
-# Specialized code #2: System halter
+# Function: System halter
 set $mode_system  (T)erminate session     (S)uspend
 set $mode_system_terminate  (S)hutdown     (R)eboot     (X) logout
 bindsym $mod+Pause mode "$mode_system"
@@ -270,7 +264,7 @@ mode "$mode_system_terminate" {
    bindsym Escape mode "default"
 }
 
-# Specialized code #3: Gaps resize
+# Function: Gaps resize
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)

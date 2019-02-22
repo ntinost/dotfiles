@@ -1,18 +1,18 @@
 # Global properties - these are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
 align=center
-command=$DOTFILES/i3wm/i3bar/$BLOCK_NAME
+command=~/.dotfiles/i3wm/i3bar/$BLOCK_NAME
 color=#EBDBB2
-separator_block_width=10
+separator_block_width=15
 markup=pango
 
 [mpd]
 interval=5
 label=
 
-[unread_mails]
-interval=120
-label=
+#[unread_mails]
+#interval=120
+#label=
 
 #[wifi]
 #interval=10
@@ -69,6 +69,6 @@ interval=3600
 label=
 
 [clock]
-command=date '+ %R'
+command=date '+ %R   '
 interval=60
 label=

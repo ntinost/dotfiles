@@ -162,7 +162,7 @@
     set background=dark
     if has('gui_running')
         colorscheme gruvbox
-        set guioptions=m
+        set guioptions=
     else
         colorscheme default
     endif

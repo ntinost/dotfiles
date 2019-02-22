@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # set / create save location
-DOWNLOAD_DIR_MP3=~/Music/youtube/
+DOWNLOAD_DIR_MP3=~/youtube/z_music
 
 if [ ! -d "$DOWNLOAD_DIR_MP3" ]; then
 	mkdir -p "$DOWNLOAD_DIR_MP3"
