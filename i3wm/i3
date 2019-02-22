@@ -115,8 +115,8 @@ bindcode Mod1+65 exec pkill -RTMIN+1 i3blocks
 bindsym $mod+p exec pavucontrol
 bindsym Print exec scrot; exec notify-send "Screenshot taken"
 bindsym $mod+Shift+m exec --no-startup-id pkill -USR1 redshift
-bindsym $mod+z exec termite -e ranger
-bindsym $mod+Shift+z exec dolphin
+bindsym $mod+Shift+z exec termite -e ranger
+bindsym $mod+z exec dolphin
 bindsym $mod+c exec chromium
 
 # Volume & Media Bindings
