@@ -148,7 +148,7 @@ exec compton -f
 exec --no-startup-id xrdb ~/.Xresources
 exec_always --no-startup-id ~/.screenlayout/doublescreen.sh
 #exec_always ~/.dotfiles/scripts/monitor-toggle.sh
-
+exec birdtray
 
 # Workspace-Related Bindings
 bindsym $mod+1 workspace $workspace1
