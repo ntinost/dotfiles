@@ -29,7 +29,7 @@
 
 # Pacman {
 	if [ -f /var/log/pacman.log ]; then
-		alias up='echo "The system was last updated on: "; cat .pacaur_lastupdate; pacaur -Syu; date > .pacaur_lastupdate'
+		alias up='echo "The system was last updated on: "; cat .pacaur_lastupdate; pikaur -Syu; date > .pacaur_lastupdate'
 		alias orphansls='pacman -Qdt'
 		alias orphansrm='sudo pacman -Rns $(pacman -Qtdq)'
 		alias cacheclean='sudo pacman -Sc'
