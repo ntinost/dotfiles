@@ -135,6 +135,7 @@
     syntax on                       " syntax highlighting
     set encoding=utf-8
     scriptencoding utf-8
+    set guiheadroom=0               " for gvim, removes annoying GTK-enabled spacing
 
     set title                       " set window title
 
