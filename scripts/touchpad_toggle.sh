@@ -8,12 +8,10 @@ if [ $STATE -eq 1 ]
 then
     xinput disable $ID
     # echo "Touchpad disabled."
-    #notify-send 'Touchpad' 'Disabled'
-	#xmodmap ~/.Xmod_left
+    notify-send 'Touchpad' 'Disabled'
 else
     xinput enable $ID
     # echo "Touchpad enabled."
-    #notify-send 'Touchpad' 'Enabled'
-	#xmodmap ~/.Xmod_right
+    notify-send 'Touchpad' 'Enabled'
 fi
 

@@ -130,7 +130,7 @@ bindsym XF86AudioPrev exec mpc prev
 
 # Other
 #bindsym XF86ScreenSaver exec i3lock-fancy
-#bindsym XF86TouchpadToggle exec ~/.dotfiles/scripts/touchpad_toggle.sh
+bindsym XF86TouchpadToggle exec ~/.dotfiles/scripts/touchpad_toggle.sh
 
 # Startup Programs
 exec --no-startup-id mpd
@@ -141,13 +141,10 @@ exec --no-startup-id unclutter
 exec --no-startup-id redshift -l 40.6:22.9 -t 6500:3500
 exec --no-startup-id dunst
 exec_always hsetroot -solid "#3C3836"
-#exec --no-startup-id urxvtd -q -f -o
-#exec hsetroot -fill ~/.dotfiles/misc/wallhaven-642271.jpg
-#exec nm-applet
+exec nm-applet
 exec compton -f
 exec --no-startup-id xrdb ~/.Xresources
-exec_always --no-startup-id ~/.screenlayout/double.sh
-#exec_always ~/.dotfiles/scripts/monitor-toggle.sh
+exec_always --no-startup-id ~/.dotfiles/scripts/monitor-toggle.sh
 exec birdtray
 
 # Workspace-Related Bindings
