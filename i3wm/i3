@@ -146,7 +146,7 @@ exec_always hsetroot -solid "#3C3836"
 #exec nm-applet
 exec compton -f
 exec --no-startup-id xrdb ~/.Xresources
-exec_always --no-startup-id ~/.screenlayout/doublescreen.sh
+exec_always --no-startup-id ~/.screenlayout/double.sh
 #exec_always ~/.dotfiles/scripts/monitor-toggle.sh
 exec birdtray
 
