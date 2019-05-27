@@ -134,7 +134,7 @@ bindsym XF86TouchpadToggle exec ~/.dotfiles/scripts/touchpad_toggle.sh
 
 # Startup Programs
 exec --no-startup-id mpd
-exec --no-startup-id transmission-daemon
+#exec --no-startup-id transmission-daemon
 exec --no-startup-id xcape -e 'Control_L=Escape'
 exec --no-startup-id xset -dpms s off
 exec --no-startup-id unclutter
@@ -145,7 +145,6 @@ exec nm-applet
 exec compton -f
 exec --no-startup-id xrdb ~/.Xresources
 exec_always --no-startup-id ~/.dotfiles/scripts/monitor-toggle.sh
-exec birdtray
 
 # Workspace-Related Bindings
 bindsym $mod+1 workspace $workspace1
