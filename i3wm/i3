@@ -144,7 +144,8 @@ exec_always hsetroot -solid "#3C3836"
 exec nm-applet
 exec compton -f
 exec --no-startup-id xrdb ~/.Xresources
-exec_always --no-startup-id ~/.dotfiles/scripts/monitor-toggle.sh
+#exec_always --no-startup-id ~/.dotfiles/scripts/monitor-toggle.sh
+exec xmodmap ~/.Xmod_left
 
 # Workspace-Related Bindings
 bindsym $mod+1 workspace $workspace1
