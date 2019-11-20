@@ -7,11 +7,11 @@ fi
 
 export DOTFILES="$HOME"/.dotfiles
 
-export BROWSER=qutebrowser
+export BROWSER=/usr/bin/chromium
 
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
-export EDITOR=vim
+export EDITOR=gvim
 export VISUAL=vim
 export PAGER=less
 

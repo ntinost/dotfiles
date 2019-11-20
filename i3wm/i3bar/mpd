@@ -1,4 +1,0 @@
-#!/bin/bash
-if [[ $(mpc current) ]]; then
-	    mpc current -f '[%title%]|[%file%]'
-fi

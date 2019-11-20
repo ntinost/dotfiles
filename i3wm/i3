@@ -39,16 +39,6 @@ set $green #B8BB26
 set $cyan #8EC07C
 set $blue #83A598
 set $pink #D3869B
-set $workspace1 "1:  "
-set $workspace2 "2:  "
-set $workspace3 "3:  "
-set $workspace4 "4:  "
-set $workspace5 "5:  "
-set $workspace6 "6:  "
-set $workspace7 "7:  "
-set $workspace8 "8:  "
-set $workspace9 "9:  "
-set $workspace10 "10:  "
 
 # General Configuration
 font pango: Source Sans Pro 9
@@ -56,19 +46,7 @@ floating_modifier $mod
 new_window pixel 5
 smart_borders on
 workspace_auto_back_and_forth yes
-#gaps inner 10
-
-#workspace $workspace1 output HDMI-2
-#workspace $workspace2 output HDMI-2
-#workspace $workspace3 output HDMI-2
-#workspace $workspace4 output HDMI-2
-#workspace $workspace5 output HDMI-2
-#workspace $workspace6 output VGA-1
-#workspace $workspace7 output VGA-1
-#workspace $workspace8 output VGA-1
-#workspace $workspace9 output VGA-1
-#workspace $workspace10 output VGA-1
-
+gaps inner 10
 
 # Window-Related Bindings
 bindsym $mod+Shift+q kill
@@ -133,6 +111,7 @@ bindsym XF86AudioPrev exec mpc prev
 bindsym XF86TouchpadToggle exec ~/.dotfiles/scripts/touchpad_toggle.sh
 
 # Startup Programs
+exec_always --no-startup-id ~/.dotfiles/scripts/launch_polybar.sh
 exec --no-startup-id mpd
 #exec --no-startup-id transmission-daemon
 exec --no-startup-id xcape -e 'Control_L=Escape'
@@ -145,41 +124,41 @@ exec nm-applet
 exec compton -f
 exec --no-startup-id xrdb ~/.Xresources
 #exec_always --no-startup-id ~/.dotfiles/scripts/monitor-toggle.sh
-exec xmodmap ~/.Xmod_left
+exec xmodmap ~/.Xmod_right
 
 # Workspace-Related Bindings
-bindsym $mod+1 workspace $workspace1
-bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace $workspace4
-bindsym $mod+5 workspace $workspace5
-bindsym $mod+6 workspace $workspace6
-bindsym $mod+7 workspace $workspace7
-bindsym $mod+8 workspace $workspace8
-bindsym $mod+9 workspace $workspace9
-bindsym $mod+0 workspace $workspace10
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
 
-bindsym $mod+Shift+1 move container to workspace $workspace1
-bindsym $mod+Shift+2 move container to workspace $workspace2
-bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace $workspace4
-bindsym $mod+Shift+5 move container to workspace $workspace5
-bindsym $mod+Shift+6 move container to workspace $workspace6
-bindsym $mod+Shift+7 move container to workspace $workspace7
-bindsym $mod+Shift+8 move container to workspace $workspace8
-bindsym $mod+Shift+9 move container to workspace $workspace9
-bindsym $mod+Shift+0 move container to workspace $workspace10
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
 
 # turn off both monitors on demand
 bindsym $mod+Right exec sleep 1 && xset dpms force off
 
 # Program Workspaces
-assign [class="qutebrowser"] $workspace2
-assign [class="(?i)firefox"] $workspace2
-assign [class="VirtualBox"] $workspace4
-assign [title="Messenger"] $workspace5
-assign [title="Viber"] $workspace5
-assign [class="Skype"] $workspace5
+assign [class="qutebrowser"] 2
+assign [class="(?i)firefox"] 2
+assign [class="VirtualBox"] 4
+assign [title="Messenger"] 5
+assign [title="Viber"] 5
+assign [class="Skype"] 5
 
 # Floating
 for_window [class="Pavucontrol"] floating enable
@@ -204,22 +183,22 @@ client.unfocused			$bgd0 $bgd0 $fgl0 $bgd0
 client.urgent				$fgd1 $red $bgl1 $red
 
 # Bar
-bar {
-	#position top
-	font pango: SourceSansPro, FontAwesome 10
-    status_command i3blocks -c ~/.dotfiles/i3wm/i3bar/i3blocks
-	strip_workspace_numbers yes
-    colors {
-        separator $fgl0
-        background $bgd0
-        statusline $fgl1
-#							border  bg		text
-        focused_workspace	$cyan $blue $bgd1
-        active_workspace	$fgd1 $fgd1 $bgl1
-        inactive_workspace	$bgd0 $bgd0 $fgl0
-        urgent_workspace	$red $red $bgl1
-	}
-}
+#bar {
+#	#position top
+#	font pango: SourceSansPro, FontAwesome 10
+#    #status_command i3blocks -c ~/.dotfiles/i3wm/i3bar/i3blocks
+#	strip_workspace_numbers yes
+#    colors {
+#        separator $fgl0
+#        background $bgd0
+#        statusline $fgl1
+##							border  bg		text
+#        focused_workspace	$cyan $blue $bgd1
+#        active_workspace	$fgd1 $fgd1 $bgl1
+#        inactive_workspace	$bgd0 $bgd0 $fgl0
+#        urgent_workspace	$red $red $bgl1
+#	}
+#}
 
 # Function: MPD control
 #set $mpd_control MPD:   (S),   (P),   (H),   (L),   (R),   (-),   (=)
