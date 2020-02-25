@@ -46,7 +46,7 @@ floating_modifier $mod
 new_window pixel 5
 smart_borders on
 workspace_auto_back_and_forth yes
-gaps inner 10
+gaps inner 5
 
 # Window-Related Bindings
 bindsym $mod+Shift+q kill
@@ -89,42 +89,27 @@ bindsym $mod+Shift+r restart
 # Program-Related Bindings
 bindsym $mod+Return exec termite
 bindsym $mod+d exec rofi -show run -eh 2
-bindcode Mod1+65 exec pkill -RTMIN+1 i3blocks
 bindsym $mod+p exec pavucontrol
 bindsym Print exec scrot; exec notify-send "Screenshot taken"
 bindsym $mod+Shift+m exec --no-startup-id pkill -USR1 redshift
 bindsym $mod+Shift+z exec termite -e ranger
-bindsym $mod+z exec dolphin
+bindsym $mod+z exec pcmanfm-qt
 bindsym $mod+c exec chromium
 
 # Volume & Media Bindings
-bindsym XF86AudioMute exec ponymix toggle && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioLowerVolume exec ponymix decrease 3 && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioRaiseVolume exec ponymix increase 3 && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec ponymix toggle
+bindsym XF86AudioLowerVolume exec ponymix decrease 3
+bindsym XF86AudioRaiseVolume exec ponymix increase 3
 bindsym XF86AudioStop exec mpc stop
 bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPrev exec mpc prev
 
-# Other
-#bindsym XF86ScreenSaver exec i3lock-fancy
-bindsym XF86TouchpadToggle exec ~/.dotfiles/scripts/touchpad_toggle.sh
+#bindsym $mod+KP_End exec ~/.screenlayout/single.sh
+#bindsym $mod+KP_Down exec ~/.screenlayout/double.sh
 
-# Startup Programs
-exec_always --no-startup-id ~/.dotfiles/scripts/launch_polybar.sh
-exec --no-startup-id mpd
-#exec --no-startup-id transmission-daemon
-exec --no-startup-id xcape -e 'Control_L=Escape'
-exec --no-startup-id xset -dpms s off
-exec --no-startup-id unclutter
-exec --no-startup-id redshift -l 40.6:22.9 -t 6500:3500
-exec --no-startup-id dunst
-exec_always hsetroot -solid "#3C3836"
-exec nm-applet
-exec compton -f
-exec --no-startup-id xrdb ~/.Xresources
-#exec_always --no-startup-id ~/.dotfiles/scripts/monitor-toggle.sh
-exec xmodmap ~/.Xmod_right
+# Other
+bindsym XF86TouchpadToggle exec ~/.dotfiles/scripts/touchpad_toggle.sh
 
 # Workspace-Related Bindings
 bindsym $mod+1 workspace 1
@@ -149,30 +134,28 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
+#workspace 1 output HDMI2
+#workspace 2 output HDMI2
+#workspace 3 output HDMI2
+#workspace 4 output HDMI2
+#workspace 5 output HDMI2
+#workspace 6 output VGA1
+#workspace 7 output VGA1
+#workspace 8 output VGA1
+#workspace 9 output VGA1
+#workspace 0 output VGA1
+
 # turn off both monitors on demand
 bindsym $mod+Right exec sleep 1 && xset dpms force off
 
 # Program Workspaces
-assign [class="qutebrowser"] 2
-assign [class="(?i)firefox"] 2
 assign [class="VirtualBox"] 4
-assign [title="Messenger"] 5
-assign [title="Viber"] 5
-assign [class="Skype"] 5
 
 # Floating
 for_window [class="Pavucontrol"] floating enable
-for_window [class="mpv"] floating enable
-for_window [class="Lxappearance"] floating enable
-for_window [class="Simplescreenrecorder"] floating enable
 for_window [class="(?i)java"] floating enable
 for_window [class="com.*$"] floating enable
 for_window [instance="sun-awt-X11-XFramePeer"] floating enable
-for_window [class="Octave-gui"] floating enable
-for_window [class="Godot"] floating enable
-for_window [class="Hamster"] floating enable
-for_window [class="Skype"] floating enable
-for_window [class="(?i)gpick"] floating enable
 #for_window [class="VirtualBox"] floating enable
 
 # Window Colors
@@ -181,44 +164,6 @@ client.focused				$yellow $yellow $bgd1 $bgd0
 client.focused_inactive 	$fgd1 $fgd1 $fgl0 $bgd0
 client.unfocused			$bgd0 $bgd0 $fgl0 $bgd0
 client.urgent				$fgd1 $red $bgl1 $red
-
-# Bar
-#bar {
-#	#position top
-#	font pango: SourceSansPro, FontAwesome 10
-#    #status_command i3blocks -c ~/.dotfiles/i3wm/i3bar/i3blocks
-#	strip_workspace_numbers yes
-#    colors {
-#        separator $fgl0
-#        background $bgd0
-#        statusline $fgl1
-##							border  bg		text
-#        focused_workspace	$cyan $blue $bgd1
-#        active_workspace	$fgd1 $fgd1 $bgl1
-#        inactive_workspace	$bgd0 $bgd0 $fgl0
-#        urgent_workspace	$red $red $bgl1
-#	}
-#}
-
-# Function: MPD control
-#set $mpd_control MPD:   (S),   (P),   (H),   (L),   (R),   (-),   (=)
-#bindsym $mod+m mode "$mpd_control"
-#mode "$mpd_control" {
-#    bindsym s exec mpc stop
-#    bindsym p exec mpc toggle
-#    bindsym l exec mpc next
-#    bindsym h exec mpc prev
-#    bindsym r exec mpc single
-#    bindsym equal exec mpc volume +3
-#    bindsym minus exec mpc volume -3
-#    bindsym XF86AudioMute exec ponymix toggle && pkill -RTMIN+1 i3blocks
-#    bindsym XF86AudioLowerVolume exec mpc volume -3
-#    bindsym XF86AudioRaiseVolume exec mpc volume +3
-#
-#    bindsym Control+bracketleft mode "default"
-#    bindsym Escape mode "default"
-#	bindsym Return mode "default"
-#}
 
 # Function: System halter
 set $mode_system  (T)erminate session     (S)uspend
@@ -280,3 +225,18 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
+# Startup Programs
+exec nm-applet
+exec xmodmap ~/.Xmod_right
+#exec_always sleep 6 && ~/.screenlayout/single.sh &
+exec mpd
+exec xcape -e 'Control_L=Escape'
+exec xset -dpms s off
+exec unclutter
+exec redshift -l 40.6:22.9 -t 6500:3500
+exec --no-startup-id dunst
+#exec_always hsetroot -solid "#3C3836"
+exec hsetroot -extend ~/.dotfiles/misc/wallhaven-xlddql.png
+exec compton -f
+exec xrdb ~/.Xresources
+exec_always ~/.dotfiles/scripts/launch_polybar.sh
