@@ -94,12 +94,12 @@ bindsym Print exec scrot; exec notify-send "Screenshot taken"
 bindsym $mod+Shift+m exec --no-startup-id pkill -USR1 redshift
 bindsym $mod+Shift+z exec termite -e ranger
 bindsym $mod+z exec pcmanfm-qt
-bindsym $mod+c exec chromium
+bindsym $mod+c exec google-chrome-stable
 
 # Volume & Media Bindings
 bindsym XF86AudioMute exec ponymix toggle
-bindsym XF86AudioLowerVolume exec ponymix decrease 3
-bindsym XF86AudioRaiseVolume exec ponymix increase 3
+#bindsym XF86AudioLowerVolume exec ponymix decrease 3
+#bindsym XF86AudioRaiseVolume exec ponymix increase 3
 bindsym XF86AudioStop exec mpc stop
 bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioNext exec mpc next
@@ -109,7 +109,7 @@ bindsym XF86AudioPrev exec mpc prev
 #bindsym $mod+KP_Down exec ~/.screenlayout/double.sh
 
 # Other
-bindsym XF86TouchpadToggle exec ~/.dotfiles/scripts/touchpad_toggle.sh
+#bindsym XF86TouchpadToggle exec ~/.dotfiles/scripts/touchpad_toggle.sh
 
 # Workspace-Related Bindings
 bindsym $mod+1 workspace 1
@@ -134,16 +134,16 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-#workspace 1 output HDMI2
-#workspace 2 output HDMI2
-#workspace 3 output HDMI2
-#workspace 4 output HDMI2
-#workspace 5 output HDMI2
-#workspace 6 output VGA1
-#workspace 7 output VGA1
-#workspace 8 output VGA1
-#workspace 9 output VGA1
-#workspace 0 output VGA1
+workspace 1 output DP-2
+workspace 2 output DP-2
+workspace 3 output DP-2
+workspace 4 output DP-2
+workspace 5 output DP-2
+workspace 6 output HDMI-1
+workspace 7 output HDMI-1
+workspace 8 output HDMI-1
+workspace 9 output HDMI-1
+workspace 0 output HDMI-1
 
 # turn off both monitors on demand
 bindsym $mod+Right exec sleep 1 && xset dpms force off
@@ -226,9 +226,10 @@ mode "$mode_gaps_outer" {
 }
 
 # Startup Programs
-exec nm-applet
+#exec nm-applet
+#exec xmodmap ~/.Xmod_left
 exec xmodmap ~/.Xmod_right
-#exec_always sleep 6 && ~/.screenlayout/single.sh &
+exec_always sleep 6 && ~/.screenlayout/double.sh &
 exec mpd
 exec xcape -e 'Control_L=Escape'
 exec xset -dpms s off
@@ -236,7 +237,7 @@ exec unclutter
 exec redshift -l 40.6:22.9 -t 6500:3500
 exec --no-startup-id dunst
 #exec_always hsetroot -solid "#3C3836"
-exec hsetroot -extend ~/.dotfiles/misc/wallhaven-xlddql.png
-exec compton -f
+exec sleep 7 && hsetroot -center ~/.dotfiles/misc/wallhaven-xlddql.png
+exec picom -f
 exec xrdb ~/.Xresources
 exec_always ~/.dotfiles/scripts/launch_polybar.sh
