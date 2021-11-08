@@ -163,7 +163,7 @@
     set background=dark
     if has('gui_running')
         colorscheme gruvbox
-        set guioptions=
+        set guioptions=m
     else
         colorscheme default
     endif
@@ -461,6 +461,7 @@
 " Plugins Configuration {
     " snipmate {
         imap <expr> ** pumvisible() ? '<esc><Plug>snipMateNextOrTrigger' : '<Plug>snipMateNextOrTrigger'
+        let g:snipMate = { 'snippet_version' : 1 }
     " }
 
     " Ctags {

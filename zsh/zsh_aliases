@@ -7,6 +7,7 @@
 	# Change the default behavior of the following commands.
 	alias make='make -j$[$(nproc)+1]'
 	alias ls='ls --group-directories-first --color=auto'
+	alias gdb_super='gdb --batch --ex run --ex bt --ex q --args'
 # }
 
 # Applications (quick launch) {
@@ -15,7 +16,7 @@
 	alias ip2='ipython2'
 	alias ip3='ipython3'
 	alias yt='chromium --new-window --app=https://www.youtube.com'
-	alias ytd='youtube-dl'
+	alias ytd='youtube-dl -x --audio-format mp3'
 # }
 
 # Personal {
@@ -32,7 +33,7 @@
 
 # Pacman {
 	if [ -f /var/log/pacman.log ]; then
-		alias up='echo "The system was last updated on: "; cat .pacaur_lastupdate; pikaur -Syu; date > .pacaur_lastupdate'
+		alias up='echo "The system was last updated on: "; cat .pacaur_lastupdate; pikaur -Syu; date > ~/.pacaur_lastupdate'
 		alias orphansls='pacman -Qdt'
 		alias orphansrm='sudo pacman -Rns $(pacman -Qtdq)'
 		alias cacheclean='sudo pacman -Sc'

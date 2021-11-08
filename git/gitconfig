@@ -1,5 +1,5 @@
 [user]
-	email = ktoump@openmailbox.org
+	email = ktoump1294@gmail.com
 	name = Konstantinos Toumpidis
 
 [core]
@@ -24,3 +24,10 @@
 
 [credential]
 	helper = cache
+[cola]
+	spellcheck = false
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
