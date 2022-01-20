@@ -1,2 +1,0 @@
-#!/bin/bash
-transmission-remote --add "$1"
