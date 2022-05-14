@@ -1,0 +1,29 @@
+# Defines environment variables.
+
+# Ensure that a non-login, non-interactive shell has a defined environment.
+if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprofile"
+fi
+
+export DOTFILES="$HOME"/.dotfiles
+
+export BROWSER=/usr/bin/chromium
+
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
+export EDITOR=gvim
+export VISUAL=vim
+export PAGER=less
+
+if [[ -z "$LANG" ]]; then
+  export LANG=en_US.UTF-8
+fi
+
+export WINEARCH=win32
+export WINEDEBUG="-all"
+export WINEPREFIX=/home/ksardas/.wine
+export SDL_AUDIODRIVER="pulse"
+export WINEDLLOVERRIDES="winemenubuilder.exe,mscoree,mshtml=d"
+export VDPAU_DRIVER=va_gl
+export STEAM_RUNTIME=0
+export ANDROID_HOME=/opt/android-sdk
