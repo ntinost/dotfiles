@@ -247,7 +247,7 @@ exec pasystray
 exec ~/.screenlayout/single.sh
 exec viber
 exec discord --start-minimized
-exec ~/.dotfiles/scripts/fu-underscan-fix
+#exec ~/.dotfiles/scripts/fu-underscan-fix
 #exec qbittorrent
 #exec lxsession
 #exec blueman-applet
