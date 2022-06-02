@@ -234,7 +234,7 @@ mode "$mode_gaps_outer" {
 # Startup Programs
 exec_always ~/.dotfiles/scripts/launch_polybar.sh
 exec picom --config $HOME/.config/picom/picom.conf --experimental-backends
-exec xmodmap ~/.Xmodmap_left
+exec xmodmap ~/.Xmodmap_right
 exec xcape -e 'Control_L=Escape'
 exec redshift -l 40.6:22.9 -t 6500:3000
 exec numlockx on
@@ -253,4 +253,4 @@ exec discord --start-minimized
 #exec blueman-applet
 #exec mpd
 #exec hsetroot -solid "#222222"
-#exec xset -dpms s off XXX
+exec xset -dpms s off XXX
